@@ -1,0 +1,13 @@
+# raw examination material never enters this repository
+data_private/
+export_full/
+*.pdf
+
+.env
+*.key
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.DS_Store

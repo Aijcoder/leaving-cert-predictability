@@ -1,0 +1,77 @@
+# Datasets in scope (the build specification §2). Values marked `null` are resolved from real data, never guessed (R5).
+last_available_sitting: 2026        # R1: no model may target a sitting after this
+
+gates:
+  min_sittings_formal: 15           # paper + scheme, main sittings (§8.3)
+  C: 1                           # number of formal datasets; written after Phase 1 gates
+
+rolling_origin:
+  min_train_formal: 8               # §15.3
+  min_train_exploratory: 5
+
+special_years:
+  covid_adjusted: [2020, 2021, 2022, 2023]   # read each rubric; never copy rules across years
+  sensitivity_exclude: [2020, 2021, 2022]
+  check_november_2020: true                  # determine whether archived 2020 papers are the rescheduled sitting
+
+datasets:
+  PHY:
+    subject: Physics
+    level: Higher
+    syllabus: "1999 syllabus"
+    year_first: 2002
+    year_last: 2026
+    papers_per_sitting: 1
+    role: bank+formal_if_gate       # gate: >= 15 sittings with paper + scheme
+    role_resolved: formal
+    codebook: PHY
+    complete_sittings: 25
+    dev_sittings: [2002, 2003, 2004]
+    dev_sittings_provisional: [2002, 2003, 2004]
+  AM1:
+  AM2:
+    subject: Applied Mathematics
+    level: Higher
+    syllabus: "2021 specification (first examined 2023)"
+    year_first: 2023
+    year_last: 2026
+    papers_per_sitting: 1
+    role: bank_only
+    role_resolved: bank_only
+    codebook: AM2
+    complete_sittings: 4
+    dev_sittings: [2023]
+    dev_sittings_provisional: [2023]   # AM2: earliest one only
+  PM:
+    subject: Mathematics
+    level: Higher
+    syllabus: "Project Maths"
+    year_first: 2014
+    year_last: 2026
+    papers_per_sitting: 2           # P1 + P2 = one sitting
+    role: bank+exploratory
+    role_resolved: exploratory
+    codebook: PM                    # shared with PMT
+    complete_sittings: 13
+    dev_sittings: [2014, 2015, 2016]
+    dev_sittings_provisional: [2014, 2015, 2016]
+  PMT:
+    subject: Mathematics
+    level: Higher
+    syllabus: "Phased transition to Project Maths"
+    year_first: 2012
+    year_last: 2013
+    papers_per_sitting: 2
+    role: bank_only
+    role_resolved: bank_only
+    codebook: PM                    # shared codebook; version differences go in boundary_rules
+    complete_sittings: 2
+    dev_sittings: [2012, 2013]
+    dev_sittings_provisional: [2012, 2013]   # only two sittings exist
+
+excluded:
+  - "Mathematics before 2012 (1992 syllabus): do not download or process"
+  - "Ordinary and Foundation Level"
+  - "Irish-language versions (…IV.pdf)"
+  - "Applied Mathematics before 2023 (AM1), dropped by owner 2026-09-17"
+  - "Non-exam documents other than syllabi"

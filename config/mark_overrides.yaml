@@ -1,0 +1,10 @@
+# Leaf mark corrections where the paper's printed marks disagree with the marking scheme (scheme wins, §10.2).
+# Each entry: item_id -> marks, source, evidence. Applied by lcbank.structure.build_phy. Logged in
+PHY-2008-P1-Q6-u5:
+  marks: 12
+  paper_printed: 14
+  source: PHY-2008-main-scheme
+  evidence: >-
+    Scheme Q6 (page 12) awards 6 for "After an orbit ... Explain why" and 6 for "How many times does an astronaut
+    ... see the sun rise" = 12, and totals 56 for Q6. The paper prints (14) for this unit, making Q6 total 58,
+    inconsistent with Section B (280 marks, five questions of 56).

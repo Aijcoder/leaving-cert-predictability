@@ -1,0 +1,370 @@
+{
+ "dataset": "AM2",
+ "version": "AM2_v1",
+ "created": "2026-09-17",
+ "source_documents": [
+  {
+   "doc_id": "AM2-specification-2021-EN_1",
+   "url": "https://www.curriculumonline.ie/getmedia/46931efd-8fa6-4c31-9ec3-dfb9e870fa1a/Leaving-Certificate-Specification-Applied-Mathematics_EN_1.pdf",
+   "sha256": "0e83c24b6fe8623788a60adde578568523a03349fd195f1bc274a27ef7d776f6",
+   "pages": "16-21 (strands and learning outcomes)",
+   "applies_to": [
+    "AM2 2023-2026"
+   ]
+  }
+ ],
+ "global_boundary_rules": [
+  "Label each scoring step by the mathematics or model it assesses, not by the question number.",
+  "Integration or differentiation techniques are coded to the model they serve (kinematics AM2.KIN.02, drag AM2.DYN.04, differential equations AM2.DEQ.*).",
+  "Stating assumptions, limitations or refinements of a model → AM2.MOD.01.",
+  "Running a named algorithm → that algorithm's topic; comparing or justifying algorithms → AM2.NET.06.",
+  "Use UNCLEAR only when a step cannot be assigned to a single topic with reasonable confidence."
+ ],
+ "unclear": "UNCLEAR is always a valid topic_id: use it when a scoring step cannot be assigned to one topic with reasonable confidence, or when the content is outside the syllabus. UNCLEAR weight never earns credit in the analysis.",
+ "topics": [
+  {
+   "topic_id": "AM2.MOD.01",
+   "L1": "Strand 1: Mathematical modelling",
+   "name": "The mathematical modelling process",
+   "syllabus_ref": "p16: problem-solving cycle; formulating problems; translating problems into mathematics; computing solutions; evaluating solutions",
+   "includes": [
+    "determine what assumptions are necessary to simplify the problem situation",
+    "translate the information given in the problem together with the assumptions into a mathematical model",
+    "interpret the mathematical solution in terms of the original situation",
+    "refine a model and use it to predict a better solution to the problem; iterate the process"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Steps that ask for assumptions, limitations or refinement of a model belong here, whatever the strand of the model."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.01",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Networks, graph terminology and representation",
+   "syllabus_ref": "p17: networks and their associated terminology",
+   "includes": [
+    "represent real-world situations in the form of a network",
+    "vertex / node, edge/arc, weight, path, cycle",
+    "distinguish between connected and disconnected graphs, and between directed and undirected graphs"
+   ],
+   "excludes": [
+    "Adjacency matrix algebra (AM2.NET.02)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.02",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Matrices, matrix algebra and adjacency matrices",
+   "syllabus_ref": "p17: matrices, matrix algebra and adjacency",
+   "includes": [
+    "represent a graph using an adjacency matrix, and reconstruct a graph from its adjacency matrix",
+    "perform multiplication of square matrices",
+    "interpret the product of adjacency matrices"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.03",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Minimum spanning trees (Kruskal, Prim)",
+   "syllabus_ref": "p17: minimum spanning trees",
+   "includes": [
+    "concepts of tree, spanning tree, minimum spanning tree",
+    "use appropriate algorithms to find minimum spanning trees"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.04",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Shortest paths: Dijkstra's algorithm",
+   "syllabus_ref": "p17: algorithms (Dijkstra)",
+   "includes": [
+    "apply Dijkstra's algorithm to find the shortest paths in a weighted undirected and directed network"
+   ],
+   "excludes": [
+    "Bellman / dynamic programming (AM2.NET.05)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.05",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Dynamic programming and Bellman's principle of optimality",
+   "syllabus_ref": "p17: dynamic programming and shortest paths in multi-stage problems",
+   "includes": [
+    "use and apply dynamic programming terminology, such as stage, state, optimal policy",
+    "apply Bellman's Principle of Optimality to find the shortest paths in a weighted directed acyclic network",
+    "stock control, routing problems, allocation of resources, equipment replacement and maintenance"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.06",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Evaluating algorithms: greedy versus dynamic programming",
+   "syllabus_ref": "p17: algorithms",
+   "includes": [
+    "distinguish between those algorithms which are greedy and those which use dynamic programming",
+    "justify the use of algorithms in terms of correctness and their ability to yield an optimal solution",
+    "evaluate different techniques for solving shortest-route problems"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Running an algorithm is coded to the algorithm's topic (AM2.NET.03-05); comparing or justifying algorithms belongs here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.NET.07",
+   "L1": "Strand 2: Mathematical modelling with networks and graphs",
+   "name": "Project scheduling and critical path analysis",
+   "syllabus_ref": "p17: analysis of project scheduling networks",
+   "includes": [
+    "apply network concepts to project scheduling",
+    "critical path, early times, late times and floats"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.KIN.01",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Kinematics in one dimension with constant acceleration",
+   "syllabus_ref": "p18: kinematics: particle motion in one direction",
+   "includes": [
+    "position, displacement, velocity, acceleration and time",
+    "displacement-time graphs, velocity-time graphs",
+    "v = u + at; s = ut + ½at²; v² = u² + 2as"
+   ],
+   "excludes": [
+    "Variable acceleration using calculus (AM2.KIN.02)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.KIN.02",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Kinematics with calculus: variable acceleration",
+   "syllabus_ref": "p18: velocity and acceleration as rates of change",
+   "includes": [
+    "interpret velocity and acceleration as derivatives",
+    "transform the function describing one quantity (displacement, velocity, acceleration) into functions describing the other two",
+    "derive the kinematic formulae of motion using calculus"
+   ],
+   "excludes": [
+    "Motion under drag forces (AM2.DYN.04)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.KIN.03",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Vectors and particle motion in two dimensions",
+   "syllabus_ref": "p19: particle motion in 2D; elementary vector algebra and calculus",
+   "includes": [
+    "represent vectors in terms of components along unit vectors in 2 fixed orthogonal directions and in polar form",
+    "calculate and interpret the dot product of vectors",
+    "elementary vector calculus"
+   ],
+   "excludes": [
+    "Projectiles (AM2.KIN.04)"
+   ],
+   "boundary_rules": [
+    "Relative-motion and vector-velocity problems without projectile motion belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.KIN.04",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Projectile motion",
+   "syllabus_ref": "p19: projectile motion",
+   "includes": [
+    "time of flight, maximum height, maximum range, horizontal planes",
+    "solve constant acceleration projectile motion problems"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.01",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Forces, Newton's laws and motion on planes",
+   "syllabus_ref": "p19: forces acting on a particle",
+   "includes": [
+    "draw free-body force diagrams for a particle on a smooth rigid fixed horizontal or inclined plane",
+    "resolve forces on rough and smooth surfaces",
+    "applied, normal reaction, frictional, resistant, tension, gravitational forces; coefficient of friction",
+    "solve dynamic problems involving the motion of a particle under a constant resultant force"
+   ],
+   "excludes": [
+    "Connected masses (AM2.DYN.02)",
+    "Drag (AM2.DYN.04)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.02",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Connected masses",
+   "syllabus_ref": "p19: connected masses",
+   "includes": [
+    "solve dynamic problems involving connected masses"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Pulley and string systems with two or more particles belong here, including their friction."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.03",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Momentum, impulse and collisions",
+   "syllabus_ref": "p19: momentum, impulse, conservation of momentum, collisions",
+   "includes": [
+    "conservation of momentum for a two-particle system in one and two dimensions",
+    "Newton's experimental laws for collisions; coefficient of restitution",
+    "solve dynamic problems involving particles that collide directly and obliquely"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.04",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Resistive forces and drag",
+   "syllabus_ref": "p19: drag: liquid, aerodynamic where F ∝ vⁿ",
+   "includes": [
+    "solve dynamic problems involving resistive forces that are proportional to vⁿ",
+    "integration by parts / by substitution applied to motion"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Setting up and integrating F = m dv/dt with a velocity-dependent resistance belongs here (not AM2.DEQ.*)."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.05",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Work, energy and conservation of energy",
+   "syllabus_ref": "p20: work, energy, conservative forces, conservation of energy",
+   "includes": [
+    "define work done",
+    "gravitational potential energy and kinetic energy and how they relate to work done",
+    "conservation of energy for variable conservative forces",
+    "force exerted by a linear stretched or compressed elastic spring and stretched strings"
+   ],
+   "excludes": [
+    "Energy in circular motion problems (AM2.DYN.06)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.06",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Circular motion of a particle",
+   "syllabus_ref": "p20: circular motion of a particle",
+   "includes": [
+    "solve problems involving the dynamics of a particle moving in a horizontal or vertical circle"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Energy conservation used within a vertical-circle problem belongs here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DYN.07",
+   "L1": "Strand 3: Mathematically modelling the physical world; kinematics and dynamics",
+   "name": "Dimensional analysis",
+   "syllabus_ref": "p20: dimensional analysis",
+   "includes": [
+    "evaluate and articulate whether an answer is reasonable by analysing the dimensions"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DIF.01",
+   "L1": "Strand 4: Mathematically modelling a changing world",
+   "name": "Recurrence relations and modelling incremental change",
+   "syllabus_ref": "p21: recurrence relations; real-world phenomena involving incremental change",
+   "includes": [
+    "compute the first and higher differences of a given sequence of numbers",
+    "derive difference equations for real-world phenomena involving incremental change",
+    "Malthusian growth, restricted growth, interest/loan payment, supply and demand, spread of diseases"
+   ],
+   "excludes": [
+    "Solving the difference equation (AM2.DIF.02)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DIF.02",
+   "L1": "Strand 4: Mathematically modelling a changing world",
+   "name": "Solving difference equations",
+   "syllabus_ref": "p21: solving homogeneous and inhomogeneous difference equations",
+   "includes": [
+    "solve linear and non-linear difference equations",
+    "analyse, interpret and solve difference equations in context"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DEQ.01",
+   "L1": "Strand 4: Mathematically modelling a changing world",
+   "name": "Formulating differential equations for continuous change",
+   "syllabus_ref": "p21: analysing real-world phenomena involving continuous change",
+   "includes": [
+    "identify real-world situations which can be suitably modelled by differential equations",
+    "derive and interpret in context differential equations for real-world phenomena involving continuous change"
+   ],
+   "excludes": [
+    "Solving (AM2.DEQ.02)",
+    "Drag in dynamics (AM2.DYN.04)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "AM2.DEQ.02",
+   "L1": "Strand 4: Mathematically modelling a changing world",
+   "name": "Solving differential equations",
+   "syllabus_ref": "p21: techniques for solving differential equations",
+   "includes": [
+    "separation of variables",
+    "first order separable; second order which can be reduced to first order",
+    "numerical and graphical methods",
+    "interpret the solution of differential equations in context"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  }
+ ]
+}

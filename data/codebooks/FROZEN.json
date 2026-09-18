@@ -1,0 +1,20 @@
+{
+ "PHY": {
+  "file": "PHY_v1.json",
+  "sha256": "ebd6861ce3486eed882f204845ed57b6bb8cf1afeef54548da3b4e70041b2b00",
+  "topics": 38,
+  "frozen": "2026-09-17"
+ },
+ "PM": {
+  "file": "PM_v1.json",
+  "sha256": "0c67bd01fd0ee0d0918e65c0bd15643fd385477a9aef3d9362adaa1d5b58dd91",
+  "topics": 25,
+  "frozen": "2026-09-17"
+ },
+ "AM2": {
+  "file": "AM2_v1.json",
+  "sha256": "234823403b62bae55df39b4da9ad579defb0db4c7fc86b0b3704dcbe2c27ae37",
+  "topics": 23,
+  "frozen": "2026-09-17"
+ }
+}

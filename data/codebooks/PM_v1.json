@@ -1,0 +1,543 @@
+{
+ "dataset": "PM",
+ "version": "PM_v1",
+ "created": "2026-09-17",
+ "source_documents": [
+  {
+   "doc_id": "PM-syllabus-2015",
+   "url": "https://www.curriculumonline.ie/getmedia/f6f2e822-2b0c-461e-bcd4-dfcde6decc0c/SCSEC25_Maths_syllabus_examination-2015_English.pdf",
+   "sha256": "135b38917e1834cf4229eb6ec8bfc197fed48b0549c8b4435efbed505505c400",
+   "pages": "17-43 (Ordinary and Higher level strand tables)",
+   "outline_sha256": "aa29d0c720dc82afb911f397da4a57de905fc4fa54589bd58367c51d361399dc",
+   "applies_to": [
+    "PM 2014-2026",
+    "PMT 2012-2013 (version differences not documented, OI-007)"
+   ]
+  }
+ ],
+ "global_boundary_rules": [
+  "Label each scoring step by the mathematics it assesses; a real-world context does not decide the topic.",
+  "When a step combines strands, use the topic of the concept the scheme rewards in that step (e.g. finding a circle's equation → PM.GEO.03 even if a quadratic is solved on the way).",
+  "Calculus applied to any function → PM.FUN.02-04; sketching or interpreting graphs without calculus → PM.FUN.01.",
+  "Geometric series in a financial context (loans, annuities, present value) → PM.NUM.04; abstract sequences/series → PM.NUM.02.",
+  "Normal-table probabilities → PM.PRB.03; empirical rule, confidence intervals and hypothesis tests → PM.STA.03.",
+  "Complex numbers anywhere → PM.ALG.04; proof by induction → PM.NUM.01.",
+  "PMT (2012-2013) papers use this codebook; content outside the 2015 syllabus is labelled with a topic only if it clearly matches its includes, otherwise UNCLEAR.",
+  "Use UNCLEAR only when a step cannot be assigned to a single topic with reasonable confidence."
+ ],
+ "unclear": "UNCLEAR is always a valid topic_id: use it when a scoring step cannot be assigned to one topic with reasonable confidence, or when the content is outside the syllabus. UNCLEAR weight never earns credit in the analysis.",
+ "topics": [
+  {
+   "topic_id": "PM.PRB.01",
+   "L1": "Statistics and Probability",
+   "name": "Counting: arrangements and selections",
+   "syllabus_ref": "1.1 Counting (p17)",
+   "includes": [
+    "count the arrangements of n distinct objects (n!)",
+    "count the number of ways of arranging r objects from n distinct objects",
+    "count the number of ways of selecting r objects from n distinct objects",
+    "compute binomial coefficients"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.PRB.02",
+   "L1": "Statistics and Probability",
+   "name": "Concepts of probability",
+   "syllabus_ref": "1.2 Concepts of probability (p17)",
+   "includes": [
+    "use set theory to discuss experiments, outcomes, sample spaces",
+    "discuss basic rules of probability (AND/ OR, mutually exclusive) through the use of Venn diagrams",
+    "calculate expected value and understand that this does not need to be one of the outcomes",
+    "recognise the role of expected value in decision making and explore the issue of fair games",
+    "extend their understanding of the basic rules of probability (AND/OR, mutually exclusive) through the use of f",
+    "Addition Rule: P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+    "Multiplication Rule (Independent Events): P(A ∩ B) = P(A) × P(B)",
+    "Multiplication Rule (General Case): P(A ∩ B) = P(A) × P(B | A)",
+    "solve problems involving sampling, with or without replacement",
+    "appreciate that in general P(A | B) ≠ P (B | A)",
+    "examine the implications of P(A | B) ≠ P (B | A) in context",
+    "solve problems involving calculating the"
+   ],
+   "excludes": [
+    "Bernoulli/binomial and normal probabilities (PM.PRB.03)"
+   ],
+   "boundary_rules": [
+    "Sample spaces, set notation, rules of probability, conditional probability and independence belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.PRB.03",
+   "L1": "Statistics and Probability",
+   "name": "Bernoulli trials, binomial and normal distribution probabilities",
+   "syllabus_ref": "1.3 Outcomes of random processes (p17)",
+   "includes": [
+    "find the probability that two independent events both occur",
+    "apply an understanding of Bernoulli trials∗",
+    "solve problems involving up to 3 Bernoulli trials",
+    "calculate the probability that the 1st success occurs on the nth Bernoulli trial where n is specified",
+    "probability of k successes in n repeated Bernoulli trials (normal approximation not required)",
+    "calculate the probability that the kth success occurs on the nth Bernoulli trial",
+    "use simulations to explore the variability of sample statistics from a known population, to construct sampling",
+    "solve problems involving reading probabilities from the normal distribution tables"
+   ],
+   "excludes": [
+    "Confidence intervals and hypothesis tests (PM.STA.03)"
+   ],
+   "boundary_rules": [
+    "Reading probabilities from normal tables and expected value of random processes belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.STA.01",
+   "L1": "Statistics and Probability",
+   "name": "Statistical reasoning and data collection",
+   "syllabus_ref": "1.4 Statistical reasoning (p17); 1.5 Finding, collecting and organising data (p19)",
+   "includes": [
+    "discuss populations and samples",
+    "decide to what extent conclusions can be generalised",
+    "work with different types of bivariate data Leaving Certificate Mathematics should be able to",
+    "17 should be able to",
+    "select a sample (Simple Random Sample)",
+    "recognise the importance of representativeness so as to avoid biased samples",
+    "discuss different types of studies: sample surveys, observational studies and designed experiments",
+    "design a plan and collect data on the basis of above knowledge",
+    "recognise the importance of randomisation and the role of the control group in studies",
+    "recognise biases, limitations and ethical issues of each type of study",
+    "select a sample (stratified, cluster, quota – no formulae required, just definitions of these)",
+    "design a plan and collect data on the basis of above knowledge"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Types of data, sampling methods, bias and survey design belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.STA.02",
+   "L1": "Statistics and Probability",
+   "name": "Representing and describing data",
+   "syllabus_ref": "1.6 Representing data graphically and numerically (p19)",
+   "includes": [
+    "Graphical",
+    "describe the sample (both univariate and bivariate data) by selecting appropriate graphical or numerical metho",
+    "explore the distribution of data, including concepts of symmetry and skewness",
+    "compare data sets using appropriate displays including back-to-back stem and leaf plots",
+    "determine the relationship between variables using scatterplots",
+    "recognise that correlation is a value from -1 to +1 and that it measures the extent of the linear relationship",
+    "match correlation coefficient values to appropriate scatterplots",
+    "understand that correlation does not imply causality Numerical",
+    "recognise standard deviation and interquartile range as measures of variability",
+    "use a calculator to calculate standard deviation",
+    "find quartiles and the interquartile range",
+    "use the interquartile range appropriately when analysing data"
+   ],
+   "excludes": [
+    "Inference from samples (PM.STA.03)"
+   ],
+   "boundary_rules": [
+    "Graphs, measures of centre and spread, percentiles, scatter plots and correlation belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.STA.03",
+   "L1": "Statistics and Probability",
+   "name": "Statistical inference",
+   "syllabus_ref": "1.7 Analysing, interpreting and drawing inferences from data (p21)",
+   "includes": [
+    "recognise how sampling variability influences the use of sample information to make statements about the popul",
+    "use appropriate tools to describe variability drawing inferences about the population from the sample",
+    "interpret the analysis and relate the interpretation to the original question",
+    "interpret a histogram in terms of distribution of data",
+    "make decisions based on the empirical rule",
+    "recognise the concept of a hypothesis test",
+    "calculate the margin of error ( ) for a population proportion*",
+    "conduct a hypothesis test on a population proportion using the margin of error Leaving Certificate Mathematics",
+    "build on the concept of margin of error and understand that increased confidence level implies wider intervals",
+    "construct 95% confidence intervals for the population mean from a large sample and for the population proporti",
+    "use sampling distributions as the basis for informal inference",
+    "perform univariate large sample tests of the population mean (two-tailed z-test only)"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Empirical rule, z-scores used for decisions, margin of error, confidence intervals, hypothesis tests and p-values belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.01",
+   "L1": "Geometry and Trigonometry",
+   "name": "Synthetic geometry: theorems, proofs and constructions",
+   "syllabus_ref": "2.1 Synthetic geometry (p25)",
+   "includes": [
+    "perform constructions 16-21 (see Geometry for Post-primary School Mathematics)",
+    "use the following terms related to logic and deductive reasoning: theorem, proof, axiom, corollary, converse, ",
+    "investigate theorems 7, 8, 11, 12, 13, 16, 17, 18, 20, 21 and corollary 6 (see Geometry for Post-primary Schoo",
+    "perform construction 22 (see Geometry for Post-primary School Mathematics)",
+    "use the following terms related to logic and deductive reasoning: is equivalent to, if and only if, proof by c",
+    "prove theorems 11,12,13, concerning ratios (see Geometry for Post-primary School Mathematics), which lay the p",
+    "solve problems involving"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.02",
+   "L1": "Geometry and Trigonometry",
+   "name": "Co-ordinate geometry of the line",
+   "syllabus_ref": "2.2 Co-ordinate geometry (p25)",
+   "includes": [
+    "use slopes to show that two lines are • parallel • perpendicular",
+    "recognise the fact that the relationship ax + by + c = 0 is linear",
+    "solve problems involving slopes of lines",
+    "calculate the area of a triangle",
+    "• the perpendicular distance from a point to a line • the angle between two lines",
+    "divide a line segment internally in a given ratio m: n"
+   ],
+   "excludes": [
+    "The circle (PM.GEO.03)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.03",
+   "L1": "Geometry and Trigonometry",
+   "name": "Co-ordinate geometry of the circle",
+   "syllabus_ref": "2.2 Co-ordinate geometry (p25)",
+   "includes": [
+    "recognise that (x-h)2 + (y-k)2 = r2 represents the relationship between the x and y co-ordinates of points on ",
+    "solve problems involving a line and a circle with centre (0, 0)",
+    "recognise that x2+y2 +2gx+2fy+c = 0 represents the relationship between the x and y co-ordinates of points on ",
+    "solve problems involving a line and a circle"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Equations of circles, tangents and line-circle intersection belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.04",
+   "L1": "Geometry and Trigonometry",
+   "name": "Trigonometry of triangles, sectors and 3D problems",
+   "syllabus_ref": "2.3 Trigonometry (p25)",
+   "includes": [
+    "use of the theorem of Pythagoras to solve problems (2D only)",
+    "use trigonometry to calculate the area of a triangle",
+    "solve problems using the sine and cosine rules (2D)",
+    "solve problems involving the area of a sector of a circle and the length of an arc",
+    "work with trigonometric ratios in surd form",
+    "use trigonometry to solve problems in 3D"
+   ],
+   "excludes": [
+    "Trigonometric functions and equations (PM.GEO.05)"
+   ],
+   "boundary_rules": [
+    "Pythagoras, sine and cosine rules, area of a triangle, sectors/arcs and 3D problems belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.05",
+   "L1": "Geometry and Trigonometry",
+   "name": "Trigonometric functions, identities and equations",
+   "syllabus_ref": "2.3 Trigonometry (p25)",
+   "includes": [
+    "define sin θ and cos θ for all values of θ",
+    "define tan θ",
+    "graph the trigonometric functions sine, cosine, tangent",
+    "graph trigonometric functions of type • f(θ)= a+bSin cθ • g(θ) = a+bCos cθ for a,b,c ∈ R",
+    "solve trigonometric equations such as Sin nθ=0 and Cos nθ= 1⁄2 giving all solutions",
+    "use the radian measure of angles",
+    "derive the trigonometric formulae 1, 2, 3, 4, 5, 6, 7, 9 (see appendix)",
+    "apply the trigonometric formulae 1-24 (see appendix)"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Unit-circle definitions, radians, graphs of trigonometric functions, identities and solving trigonometric equations belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.GEO.06",
+   "L1": "Geometry and Trigonometry",
+   "name": "Transformation geometry and enlargements",
+   "syllabus_ref": "2.4 Transformation geometry, enlargements (p25)",
+   "includes": [
+    "investigate enlargements and their effect on area, paying attention to • centre of enlargement • scale factor ",
+    "solve problems involving enlargements Leaving Certificate Mathematics As they engage with this strand and make",
+    "25 27"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.NUM.01",
+   "L1": "Number",
+   "name": "Number systems, irrational numbers and proof",
+   "syllabus_ref": "3.1 Number systems (p29)",
+   "includes": [
+    "recognise irrational numbers and appreciate that R ≠ Q",
+    "work with irrational numbers",
+    "revisit the operations of addition, multiplication, subtraction and division in the following domains: • N of ",
+    "develop decimals as special equivalent fractions strengthening the connection between these numbers and fracti",
+    "consolidate their understanding of factors, multiples, prime numbers in N",
+    "express numbers in terms of their prime factors",
+    "appreciate the order of operations, including brackets",
+    "express non-zero positive rational numbers in the form a x10n, where n ∈ Z and 1 ≤ a < 10 and perform arithmet",
+    "geometrically construct √2 and √3",
+    "prove that √2 is not rational"
+   ],
+   "excludes": [
+    "Sequences and series (PM.NUM.02)"
+   ],
+   "boundary_rules": [
+    "Proof by induction belongs here even when the identity is about a series."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.NUM.02",
+   "L1": "Number",
+   "name": "Sequences, series and limits",
+   "syllabus_ref": "3.1 Number systems (p29)",
+   "includes": [
+    "appreciate that processes can generate sequences of numbers or objects",
+    "investigate patterns among these sequences",
+    "use patterns to continue the sequence",
+    "generalise and explain patterns and relationships in algebraic form",
+    "recognise whether a sequence is arithmetic, geometric or neither",
+    "find the sum to n terms of an arithmetic series",
+    "verify and justify formulae from number patterns",
+    "investigate geometric sequences and series",
+    "prove by induction • simple identities such as the sum of the first n natural numbers and the sum of a finite ",
+    "apply the rules for sums, products, quotients of limits",
+    "find by inspection the limits of sequences such as n lim n +1; lim rn, r <1 n n",
+    "solve problems involving finite and infinite geometric series including applications such as recurring decimal"
+   ],
+   "excludes": [
+    "Financial applications (PM.NUM.04)"
+   ],
+   "boundary_rules": [
+    "Arithmetic and geometric sequences/series, sums to infinity and limits of sequences belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.NUM.03",
+   "L1": "Number",
+   "name": "Indices and logarithms",
+   "syllabus_ref": "3.2 Indices (p31)",
+   "includes": [
+    "solve problems using the rules for indices (where a, b ∈ R; p, q ∈ Q; ap, aq ∈ Q; a, b ≠ 0): p q p q a a a + =",
+    "solve problems using the rules of logarithms xy x y log ( ) = log + log • a a a x x y • log ( ) = log – log a "
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.NUM.04",
+   "L1": "Number",
+   "name": "Arithmetic: applied and financial mathematics",
+   "syllabus_ref": "3.3 Arithmetic (p33)",
+   "includes": [
+    "check a result by considering whether it is of the right order of magnitude and by working the problem backwar",
+    "accumulate error (by addition or subtraction only)",
+    "make and justify estimates and approximations of calculations; calculate percentage error and tolerance",
+    "calculate average rates of change (with respect to time)",
+    "solve problems that involve • calculating cost price, selling price, loss, discount, mark up (profit as a % of",
+    "make estimates of measures in the physical world around them",
+    "use present value when solving problems involving loan repayments and investments"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Percentages, error, compound interest, depreciation, present value, annuities and amortisation belong here, including their geometric-series algebra."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.NUM.05",
+   "L1": "Number",
+   "name": "Length, area and volume",
+   "syllabus_ref": "3.4 Length, area and volume (p33)",
+   "includes": [
+    "investigate the nets of prisms, cylinders and cones",
+    "solve problems involving the length of the perimeter and the area of plane figures: disc, triangle, rectangle,",
+    "solve problems involving surface area and volume of the following solid figures: rectangular block, cylinder, ",
+    "use the trapezoidal rule to approximate area Leaving Certificate Mathematics As they engage with this strand a",
+    "33 35"
+   ],
+   "excludes": [
+    "Area under a curve by integration (PM.FUN.04)"
+   ],
+   "boundary_rules": [
+    "Plane figures, solids, nets and the trapezoidal rule belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.ALG.01",
+   "L1": "Algebra",
+   "name": "Algebraic expressions and polynomials",
+   "syllabus_ref": "4.1 Expressions (p37)",
+   "includes": [
+    "evaluate expressions given the value of the variables",
+    "expand and re-group expressions",
+    "factorise expressions of order 2",
+    "add and subtract expressions of the form • (ax+by+c) ±...± (dx+ey+f) • (ax2+bx+c) ±...± (dx2+ex+f) where a,b,c",
+    "use the associative and distributive properties to simplify expressions of the form • a(bx±cy±d) ±...± e(fx±gy",
+    "rearrange formulae Leaving Certificate Mathematics",
+    "perform the arithmetic operations of addition, subtraction, multiplication and division on polynomials and rat",
+    "apply the binomial theorem 37"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.ALG.02",
+   "L1": "Algebra",
+   "name": "Solving equations",
+   "syllabus_ref": "4.2 Solving equations (p39)",
+   "includes": [
+    "select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to equations of",
+    "select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to • simultaneo",
+    "form quadratic equations given whole number roots",
+    "select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to equations of",
+    "use the Factor Theorem for polynomials",
+    "select and use suitable strategies (graphic, numeric, algebraic and mental) for finding solutions to • cubic e"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Linear, quadratic, cubic, simultaneous and surd/exponential equations belong here when solving is the assessed step."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.ALG.03",
+   "L1": "Algebra",
+   "name": "Inequalities",
+   "syllabus_ref": "4.3 Inequalities (p39)",
+   "includes": [
+    "select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to inequalities",
+    "use notation | x |",
+    "select and use suitable strategies (graphic, numeric, algebraic, mental) for finding solutions to inequalities"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.ALG.04",
+   "L1": "Algebra",
+   "name": "Complex numbers",
+   "syllabus_ref": "3.1 Number systems (p29); 4.4 Complex numbers (p39)",
+   "includes": [
+    "investigate the operations of addition, multiplication, subtraction and division with complex numbers C in rec",
+    "illustrate complex numbers on an Argand diagram",
+    "interpret the modulus as distance from the origin on an Argand diagram and calculate the complex conjugate",
+    "calculate conjugates of sums and products of complex numbers",
+    "See strand 3, section 3.1 Leaving Certificate Mathematics As they engage with this strand and make connections",
+    "use the Conjugate Root Theorem to find the roots of polynomials – work with complex numbers in rectangular and",
+    "use De Moivre’s Theorem",
+    "prove De Moivre’s Theorem by induction for n ∈ N",
+    "use applications such as nth roots of unity, n ∈ N, and identities such as Cos 3θ = 4 Cos3 θ – 3 Cos θ 39 41"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "All complex-number work (Argand diagram, modulus, conjugates, polar form, De Moivre, complex roots) belongs here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.FUN.01",
+   "L1": "Functions",
+   "name": "Functions and their graphs",
+   "syllabus_ref": "5.1 Functions (p43)",
+   "includes": [
+    "recognise that a function assigns a unique output to a given input",
+    "form composite functions",
+    "graph functions of the form • ax+b where a,b ∈ Q, x ∈ R • ax2+bx + c where a, b, c ∈ Z , x ∈ R • ax3+bx2 + cx+",
+    "interpret equations of the form f(x) = g(x) as a comparison of the above functions",
+    "use graphical methods to find approximate solutions to • f(x) = 0 • f(x) = k • f(x) = g(x) where f(x) and g(x)",
+    "investigate the concept of the limit of a function",
+    "recognise surjective, injective and bijective functions",
+    "find the inverse of a bijective function",
+    "given a graph of a function sketch the graph of its inverse",
+    "express quadratic functions in complete square form",
+    "use the complete square form of a quadratic function to • find the roots and turning points • sketch the funct",
+    "graph functions of the form • ax2+bx + c where a,b,c ∈ Q, x ∈ R • abx where a, b ∈ R • logarithmic • exponenti"
+   ],
+   "excludes": [
+    "Calculus (PM.FUN.02-04)"
+   ],
+   "boundary_rules": [
+    "Composition, inverses, transformations of graphs, exponential/log functions as functions and limits of functions belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.FUN.02",
+   "L1": "Functions",
+   "name": "Differentiation",
+   "syllabus_ref": "5.2 Calculus (p43)",
+   "includes": [
+    "find first and second derivatives of linear, quadratic and cubic functions by rule",
+    "associate derivatives with slopes and tangent lines",
+    "differentiate linear and quadratic functions from first principles",
+    "differentiate the following functions • polynomial • exponential • trigonometric • rational powers • inverse f",
+    "find the derivatives of sums, differences, products, quotients and compositions of functions of the above form",
+    "use differentiation to find the slope of a tangent to a circle"
+   ],
+   "excludes": [
+    "Applications of differentiation (PM.FUN.03)",
+    "Integration (PM.FUN.04)"
+   ],
+   "boundary_rules": [
+    "Rules of differentiation and first principles belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.FUN.03",
+   "L1": "Functions",
+   "name": "Applications of differentiation",
+   "syllabus_ref": "5.2 Calculus (p43)",
+   "includes": [
+    "apply differentiation to • rates of change • maxima and minima • curve sketching Leaving Certificate Mathemati",
+    "apply the differentiation of above functions to solve problems"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Rates of change, maxima and minima, curve sketching and optimisation problems belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PM.FUN.04",
+   "L1": "Functions",
+   "name": "Integration",
+   "syllabus_ref": "5.2 Calculus (p43)",
+   "includes": [
+    "recognise integration as the reverse process of differentiation",
+    "use integration to find the average value of a function over an interval",
+    "integrate sums, differences and constant multiples of functions of the form • xa where a ∈ Q • ax where a ∈ R,",
+    "determine areas of plane regions bounded by polynomial and exponential curves 43"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Antiderivatives, definite integrals, area under/between curves and average value belong here."
+   ],
+   "examples": []
+  }
+ ]
+}

@@ -1,0 +1,772 @@
+{
+ "dataset": "PHY",
+ "version": "PHY_v1",
+ "created": "2026-09-17",
+ "source_documents": [
+  {
+   "doc_id": "PHY-syllabus-1999",
+   "url": "https://www.curriculumonline.ie/getmedia/fe400d39-9ea0-46ee-927b-ce570bddad76/SCSEC27_Physics_syllabus_eng.pdf",
+   "sha256": "1bbfd4ef4d1376947ff55a7607d1f9cd58604b9940d8367688635590097d5962",
+   "pages": "29-48 (Higher Level syllabus content)",
+   "outline_sha256": "8f7ae44f8275869cf7a2eb13a75882a6b57a5de11231582c26bcd8aa5be118a4"
+  }
+ ],
+ "global_boundary_rules": [
+  "Label each scoring step by the physics it assesses, not by where the question sits on the paper.",
+  "Mandatory experiment questions (Section A) are coded by the topic of the quantity measured or law verified; apparatus, procedure, precautions, graph drawing and calculation steps within the experiment take the same topic.",
+  "A definition, unit or symbol is coded to the topic where that quantity is defined in the syllabus.",
+  "Option 2 (Applied electricity) items on solenoids/relays, motors/loudspeakers, induction coils and a.c. generators are coded to the core Electricity topics PHY.ELE.07-09; only diode applications, transistors and logic gates use PHY.APE.01.",
+  "Everyday applications and STS content (e.g. 'give one use of…') are coded to the topic of the underlying physics.",
+  "A reading-comprehension question is coded step by step according to the physics each step assesses.",
+  "Use UNCLEAR only when a step cannot be assigned to a single topic with reasonable confidence."
+ ],
+ "unclear": "UNCLEAR is always a valid topic_id: use it when a scoring step cannot be assigned to one topic with reasonable confidence, or when the content is outside the syllabus. UNCLEAR weight never earns credit in the analysis.",
+ "topics": [
+  {
+   "topic_id": "PHY.MEC.01",
+   "L1": "Mechanics",
+   "name": "Linear motion, vectors and scalars",
+   "syllabus_ref": "Mechanics > Motion > 1. Linear motion (p29); Mechanics > Motion > 2. Vectors and scalars (p29)",
+   "includes": [
+    "Units of mass, length and time – definition of units not required",
+    "Displacement, velocity, acceleration: definitions and units",
+    "Equations of motion",
+    "Derivation",
+    "Distinction between vector and scalar quantities",
+    "Composition of perpendicular vectors",
+    "Resolution of co-planar vectors"
+   ],
+   "excludes": [
+    "Motion in a circle (PHY.MEC.03)",
+    "Projectile-free SHM oscillations (PHY.MEC.07)"
+   ],
+   "boundary_rules": [
+    "Equations of motion, velocity-time graphs and vector resolution belong here unless the context is circular motion, gravitation or SHM."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.02",
+   "L1": "Mechanics",
+   "name": "Newton's laws of motion and conservation of momentum",
+   "syllabus_ref": "Mechanics > Forces > 1. Newton’s laws of motion (p29); Mechanics > Forces > 2. Conservation of momentum (p29)",
+   "includes": [
+    "Statement of the three laws",
+    "Force and momentum: definitions and units",
+    "Vector nature of forces to be stressed",
+    "F = ma as a special case of Newton’s second law",
+    "Friction: a force opposing motion",
+    "Principle of conservation of momentum"
+   ],
+   "excludes": [
+    "Centripetal force (PHY.MEC.03)",
+    "Momentum conservation in nuclear/particle reactions (PHY.PAR.01)"
+   ],
+   "boundary_rules": [
+    "F = ma, momentum, impulse and collisions/explosions belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.03",
+   "L1": "Mechanics",
+   "name": "Circular motion",
+   "syllabus_ref": "Mechanics > Forces > 3. Circular motion (p30)",
+   "includes": [
+    "Centripetal force required to maintain uniform motion in a circle",
+    "Definition of angular velocity ω",
+    "Derivation of v = rω Use of a = rω 2, F = mrω"
+   ],
+   "excludes": [
+    "Satellite orbits using gravitation (PHY.MEC.04)"
+   ],
+   "boundary_rules": [
+    "Angular velocity, centripetal acceleration and force in a general circle belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.04",
+   "L1": "Mechanics",
+   "name": "Gravitation",
+   "syllabus_ref": "Mechanics > Forces > 4. Gravity (p30)",
+   "includes": [
+    "Newton’s law of universal gravitation",
+    "F = Gm1m2 d 2 Weight = mg Variation of g, and hence W, with distance from centre of Earth (effect of centripet",
+    "Value of acceleration due to gravity on other bodies in space, e.g",
+    "Moon",
+    "Circular satellite orbits – derivation of the relationship between the period, the mass of the central body an"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Newton's law of universal gravitation, weight, g variation and satellites/orbital period belong here, including their circular-motion algebra."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.05",
+   "L1": "Mechanics",
+   "name": "Density and pressure",
+   "syllabus_ref": "Mechanics > Forces > 5. Density and pressure (p30)",
+   "includes": [
+    "Definitions and units",
+    "Pressure in liquids and gases",
+    "Boyle’s law",
+    "Archimedes’ principle",
+    "Law of flotation"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Boyle's law and Archimedes/flotation belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.06",
+   "L1": "Mechanics",
+   "name": "Moments and conditions for equilibrium",
+   "syllabus_ref": "Mechanics > Forces > 6. Moments (p30); Mechanics > Forces > 7. Conditions for equilibrium (p30)",
+   "includes": [
+    "Definition",
+    "Levers",
+    "Couple",
+    "Vector sum of the forces in any direction is zero",
+    "The sum of the moments about any point is zero"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.07",
+   "L1": "Mechanics",
+   "name": "Simple harmonic motion and Hooke's law",
+   "syllabus_ref": "Mechanics > Forces > 8. Simple harmonic motion (SHM) and Hooke’s law (p31)",
+   "includes": [
+    "Hooke’s law: restoring force ∝ displacement",
+    "F = – ks ma = – ks – ks a = = – ω2s m Systems that obey Hooke’s law e.g",
+    "simple pendulum, execute simple harmonic motion: 2π T = ω"
+   ],
+   "excludes": [
+    "Stationary waves (PHY.SND.02)"
+   ],
+   "boundary_rules": [
+    "The simple pendulum (including measuring g with a pendulum) belongs here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MEC.08",
+   "L1": "Mechanics",
+   "name": "Work, energy and power",
+   "syllabus_ref": "Mechanics > Energy > 1. Work (p31); Mechanics > Energy > 2. Energy (p31); Mechanics > Energy > 3. Power (p31)",
+   "includes": [
+    "Definition and unit",
+    "Energy as the ability to do work",
+    "Different forms of energy",
+    "EP = mgh Ek = 1 mv2 2 Mass as a form of energy E = mc2 Conversions from one form of energy to another",
+    "Principle of conservation of energy",
+    "Power as the rate of doing work or rate of energy conversion",
+    "Unit",
+    "Percentage efficiency = Power output x 100 Power input MECHANICS: Experiments"
+   ],
+   "excludes": [
+    "Electrical power in circuits (PHY.ELE.06)"
+   ],
+   "boundary_rules": [
+    "Mechanical energy conservation (Ep = mgh, Ek = mv²/2), efficiency and power belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.TMP.01",
+   "L1": "Temperature",
+   "name": "Temperature and thermometers",
+   "syllabus_ref": "Temperature > Energy > 1. Concept of temperature (p32); Temperature > Energy > 2. Thermometric properties (p32); Temperature > Energy > 3. Thermometers (p32)",
+   "includes": [
+    "Measure of hotness or coldness of a body",
+    "The SI unit of temperature is the kelvin (definition of unit in terms of the triple point of water not require",
+    "Celsius scale is the practical scale of temperature",
+    "t /oC = T /K – 273.15",
+    "A physical property that changes measurably with temperature",
+    "Thermometers measure temperature",
+    "Two thermometers do not necessarily give the same reading at the same temperature",
+    "The need for standard thermometers – use any commercial laboratory thermometer as school standard"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Thermometric properties and calibration curves belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.HEA.01",
+   "L1": "Heat",
+   "name": "Heat capacity and latent heat",
+   "syllabus_ref": "Heat > Energy > 1. Concept of heat (p33); Heat > Quantity Of Heat > 1. Heat capacity, specific heat capacity (p33); Heat > Quantity Of Heat > 2. Latent heat, specific latent heat (p33)",
+   "includes": [
+    "Heat as a form of energy that causes a rise in temperature when added or a fall in temperature when withdrawn",
+    "Definitions and units",
+    "Definitions and units"
+   ],
+   "excludes": [
+    "Heat transfer mechanisms (PHY.HEA.02)"
+   ],
+   "boundary_rules": [
+    "Calorimetry calculations and specific heat / latent heat experiments belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.HEA.02",
+   "L1": "Heat",
+   "name": "Heat transfer: conduction, convection and radiation",
+   "syllabus_ref": "Heat > Heat Transfer > 1. Conduction (p33); Heat > Heat Transfer > 2. Convection (p33); Heat > Heat Transfer > 3. Radiation (p33)",
+   "includes": [
+    "Qualitative comparison of rates of conduction through solids",
+    "Radiation from the Sun",
+    "Solar constant (also called solar irradiance)",
+    "HEAT: Experiments"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "U-values, insulation and the solar constant belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.WAV.01",
+   "L1": "Waves",
+   "name": "Wave properties and wave phenomena",
+   "syllabus_ref": "Waves > Heat Transfer > 1. Properties of waves (p34); Waves > Heat Transfer > 2. Wave phenomena (p34)",
+   "includes": [
+    "Longitudinal and transverse waves: frequency, amplitude, wavelength, velocity",
+    "Relationship c = f λ",
+    "Reflection",
+    "Refraction",
+    "Diffraction",
+    "Interference",
+    "Polarisation"
+   ],
+   "excludes": [
+    "Sound-specific content (PHY.SND.01)",
+    "Light-specific diffraction/interference (PHY.LIG.04)"
+   ],
+   "boundary_rules": [
+    "General wave motion (c = fλ, transverse/longitudinal, stationary waves in general) belongs here when not tied to sound or light."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.WAV.02",
+   "L1": "Waves",
+   "name": "Doppler effect",
+   "syllabus_ref": "Waves > Heat Transfer > 3. Doppler effect (p34)",
+   "includes": [
+    "Qualitative treatment",
+    "Simple quantitative treatment for moving source and stationary observer"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "All Doppler calculations and applications (sound, light, red shift) belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.SND.01",
+   "L1": "Vibrations and sound",
+   "name": "Sound: nature, characteristics, resonance and intensity level",
+   "syllabus_ref": "Vibrations And Sound > Heat Transfer > 1. Wave nature of sound (p35); Vibrations And Sound > Heat Transfer > 2. Characteristics of notes (p35); Vibrations And Sound > Heat Transfer > 3. Resonance (p35); Vibrations And Sound > Heat Transfer > 5. Sound intensity level (p35)",
+   "includes": [
+    "Reflection, refraction, diffraction, interference",
+    "Speed of sound in various media",
+    "Amplitude and loudness, frequency and pitch, quality and overtones",
+    "Frequency limits of audibility",
+    "Natural frequency",
+    "Fundamental frequency",
+    "Definition of resonance and examples",
+    "Sound intensity: definition and unit",
+    "Threshold of hearing and frequency response of ear",
+    "Sound intensity level is measured in decibels"
+   ],
+   "excludes": [
+    "Frequencies of strings and pipes (PHY.SND.02)"
+   ],
+   "boundary_rules": [
+    "Speed of sound, loudness/pitch/quality, resonance, sound intensity and decibels belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.SND.02",
+   "L1": "Vibrations and sound",
+   "name": "Vibrations in strings and pipes",
+   "syllabus_ref": "Vibrations And Sound > Heat Transfer > 4. Vibrations in strings and pipes (p35)",
+   "includes": [
+    "Stationary waves in strings and pipes",
+    "Relationship between frequency and length",
+    "Harmonics in strings and pipes",
+    "f = 1 T 2l μ for a stretched string"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Laws of stretched strings, harmonics in pipes and related experiments belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.LIG.01",
+   "L1": "Light",
+   "name": "Reflection and mirrors",
+   "syllabus_ref": "Light > Reflection > 1. Laws of reflection (p36); Light > Reflection > 2. Mirrors (p36)",
+   "includes": [
+    "Images formed by plane and spherical mirrors",
+    "Knowledge that 1 = 1 + 1 and f u v m = v u"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.LIG.02",
+   "L1": "Light",
+   "name": "Refraction and total internal reflection",
+   "syllabus_ref": "Light > Refraction > 1. Laws of refraction (p36); Light > Refraction > 2. Total internal reflection (p36)",
+   "includes": [
+    "Refractive index",
+    "Refractive index in terms of relative speeds",
+    "Critical angle",
+    "Relationship between critical angle and refractive index",
+    "Transmission of light through optical fibres"
+   ],
+   "excludes": [
+    "Lenses (PHY.LIG.03)"
+   ],
+   "boundary_rules": [
+    "Snell's law, refractive index, critical angle and optical fibres belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.LIG.03",
+   "L1": "Light",
+   "name": "Lenses",
+   "syllabus_ref": "Light > Refraction > 3. Lenses (p36)",
+   "includes": [
+    "Images formed by single thin lenses",
+    "Knowledge that 1 = 1 + 1 and f u v v m = u 1 Power of lens: P = f Two lenses in contact: P = P1 + P 2 The eye:",
+    "short sight, long sight, and corrections"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Lens formula, power of a lens, the eye and lens combinations belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.LIG.04",
+   "L1": "Light",
+   "name": "Diffraction, interference and polarisation of light",
+   "syllabus_ref": "Light > Light > 1. Diffraction and interference (p37); Light > Light > 2. Light as a transverse wave motion (p37)",
+   "includes": [
+    "Use of diffraction grating formula: nλ = dsinθ Derivation of formula",
+    "Polarisation"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Diffraction grating (nλ = d sinθ), Young's slits and polarisation belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.LIG.05",
+   "L1": "Light",
+   "name": "Dispersion, colour, electromagnetic spectrum and the spectrometer",
+   "syllabus_ref": "Light > Light > 3. Dispersion (p37); Light > Light > 4. Colours (p37); Light > Light > 5. Electromagnetic spectrum (p37); Light > Light > 6. The spectrometer (p37)",
+   "includes": [
+    "Dispersion by a prism and a diffraction grating",
+    "Recombination by a prism",
+    "Primary, secondary, complementary colours",
+    "Addition of colours",
+    "Pigment colours need not be considered",
+    "Relative positions of radiations in terms of wavelength and frequency",
+    "Detection of UV and IR radiation",
+    "The spectrometer and the function of its parts",
+    "LIGHT: Experiments"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.01",
+   "L1": "Electricity",
+   "name": "Static electricity: charges and electroscope",
+   "syllabus_ref": "Electricity > Charges > 1. Electrification by contact (p38); Electricity > Charges > 2. Electrification by induction (p38); Electricity > Charges > 3. Distribution of charge on conductors (p38); Electricity > Charges > 4. Electroscope (p38)",
+   "includes": [
+    "Charging by rubbing together dissimilar materials",
+    "Types of charge: positive, negative",
+    "Conductors and insulators",
+    "Unit of charge: coulomb",
+    "Total charge resides on outside of a metal object",
+    "Charges tend to accumulate at points",
+    "Point discharge",
+    "Structure"
+   ],
+   "excludes": [
+    "Coulomb's law and fields (PHY.ELE.02)"
+   ],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.02",
+   "L1": "Electricity",
+   "name": "Coulomb's law, electric field and potential difference",
+   "syllabus_ref": "Electricity > Electric Field > 1. Force between charges (p38); Electricity > Electric Field > 2. Electric fields (p38); Electricity > Electric Field > 3. Potential difference (p38)",
+   "includes": [
+    "Coulomb’s law 1 Q1 Q 2 F = 4πε d 2 – an example of an inverse square law",
+    "Forces between collinear charges",
+    "Idea of lines of force",
+    "Vector nature of electric field to be stressed",
+    "Definition of electric field strength",
+    "Definition of potential difference: work done per unit charge to transfer a charge from one point to another",
+    "Definition of volt",
+    "Concept of zero potential"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.03",
+   "L1": "Electricity",
+   "name": "Capacitance",
+   "syllabus_ref": "Electricity > Capacitance > 1. Capacitors and capacitance (p39)",
+   "includes": [
+    "Definition: C = Q/V Unit of capacitance",
+    "Parallel plate capacitor",
+    "Aεο Use of C = d Energy stored in a capacitor",
+    "Use of W = CV 2 1 2 Capacitors – conduct a.c",
+    "but not d.c"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Capacitor energy and parallel-plate capacitance belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.04",
+   "L1": "Electricity",
+   "name": "Electric current, emf and conduction in materials",
+   "syllabus_ref": "Electricity > Electric Current > 1. Electric current (p39); Electricity > Electric Current > 2. Sources of emf and electric current (p39); Electricity > Electric Current > 3. Conduction in materials (p39)",
+   "includes": [
+    "Description of electric current as flow of charge",
+    "1 A = 1 C s –1",
+    "Pd and voltage are the same thing",
+    "they are measured in volts",
+    "A voltage when applied to a circuit is called an emf",
+    "Conduction in",
+    "metals",
+    "ionic solutions (active and inactive electrodes)",
+    "gases",
+    "vacuum"
+   ],
+   "excludes": [
+    "Diode applications, transistor, logic gates (PHY.APE.01)"
+   ],
+   "boundary_rules": [
+    "Conduction in metals, solutions, gases and semiconductors (intrinsic/extrinsic, doping, p-n junction bias) belongs here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.05",
+   "L1": "Electricity",
+   "name": "Resistance, resistivity and potential divider",
+   "syllabus_ref": "Electricity > Electric Current > 4. Resistance (p40); Electricity > Electric Current > 5. Potential (p40)",
+   "includes": [
+    "Definition of resistance, unit",
+    "Ohm's law",
+    "Resistance varies with length, cross-sectional area, and temperature",
+    "Resistivity",
+    "Resistors in series and parallel",
+    "Potential divider"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Ohm's law, series/parallel resistance, Wheatstone bridge, metre bridge and thermistor/LDR behaviour belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.06",
+   "L1": "Electricity",
+   "name": "Effects of electric current and domestic circuits",
+   "syllabus_ref": "Electricity > Electric Current > 6. Effects of electric current (p40); Electricity > Electric Current > 7. Domestic circuits (p40)",
+   "includes": [
+    "Heating: W = I 2Rt Chemical effect – an electric current can cause a chemical reaction",
+    "Magnetic effect of an electric current",
+    "Plugs, fuses, MCBs (miniature circuit breakers)",
+    "Ring and radial circuits, bonding, earthing, and general safety precautions",
+    "RCDs (residual current devices)",
+    "No drawing of ring circuits required",
+    "The kilowatt-hour"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Joule's law (heating), electrical power P = VI, kWh, fuses, MCBs, RCDs and bonding belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.07",
+   "L1": "Electricity",
+   "name": "Magnetism and magnetic fields",
+   "syllabus_ref": "Electricity > Electromagnetism > 1. Magnetism (p41); Electricity > Electromagnetism > 2. Magnetic fields (p41); Option 2: Applied Electricity > Applied Electricity > 1. Current in a solenoid (p48)",
+   "includes": [
+    "Magnetic poles exist in pairs",
+    "Magnetic effect of an electric current",
+    "Magnetic field due to",
+    "magnets",
+    "current in a long straight wire a loop a solenoid",
+    "Description without mathematical details",
+    "Vector nature of magnetic field to be stressed",
+    "Electromagnetic relay"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Field patterns, solenoids and the electromagnetic relay (Option 2 item 1) belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.08",
+   "L1": "Electricity",
+   "name": "Current and moving charge in a magnetic field",
+   "syllabus_ref": "Electricity > Electromagnetism > 3. Current in a magnetic field (p41); Option 2: Applied Electricity > Applied Electricity > 2. Current in a magnetic field (p48)",
+   "includes": [
+    "Current-carrying conductor experiences a force in a magnetic field",
+    "Direction of the force",
+    "Force depends on",
+    "the current",
+    "the length of the wire",
+    "Simple d.c",
+    "motor",
+    "Principle of operation of moving-coil loudspeaker",
+    "Principle of moving-coil galvanometer",
+    "Conversion of a galvanometer to"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "F = BIL, F = qvB, magnetic flux density, the d.c. motor, moving-coil meters and loudspeaker (Option 2 item 2) belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.ELE.09",
+   "L1": "Electricity",
+   "name": "Electromagnetic induction, alternating current and mutual/self-induction",
+   "syllabus_ref": "Electricity > Electromagnetism > 4. Electromagnetic induction (p41); Electricity > Electromagnetism > 5. Alternating current (p42); Electricity > Electromagnetism > 6. Concepts of mutual induction and self-induction (p42); Option 2: Applied Electricity > Applied Electricity > 3. Electromagnetic induction (p48); Option 2: Applied Electricity > Applied Electricity > 4. Alternating current (p48)",
+   "includes": [
+    "Magnetic flux Φ = BA Faraday’s law",
+    "Lenz’s law",
+    "Change of mechanical energy to electrical energy",
+    "Variation of voltage and current with time, i.e",
+    "alternating voltages and currents",
+    "Peak and rms values of alternating currents and voltages",
+    "Mutual induction (two adjacent coils): when the magnetic field in one coil changes an emf is induced in the ot",
+    "transformers",
+    "Self-induction: a changing magnetic field in a coil induces an emf in the coil itself, e.g",
+    "inductor"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Faraday/Lenz, generators, rms values, transformers and induction coil (Option 2 items 3-4) belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.01",
+   "L1": "Modern physics",
+   "name": "The electron and thermionic emission",
+   "syllabus_ref": "Modern Physics > The Electron > 1. The electron (p43); Modern Physics > The Electron > 2. Thermionic emission (p43)",
+   "includes": [
+    "The electron as the indivisible quantity of charge",
+    "Reference to mass and location in the atom",
+    "Units of energy: eV, keV, MeV, GeV",
+    "Principle of thermionic emission and its application to the production of a beam of electrons",
+    "Cathode ray tube consisting of heated filament, cathode, anode, and screen",
+    "Deflection of cathode rays in electric and magnetic fields"
+   ],
+   "excludes": [
+    "X-rays (PHY.MOD.03)"
+   ],
+   "boundary_rules": [
+    "Cathode ray tube, e/m and the CRO belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.02",
+   "L1": "Modern physics",
+   "name": "Photoelectric emission and the photon",
+   "syllabus_ref": "Modern Physics > The Electron > 3. Photoelectric emission (p43)",
+   "includes": [
+    "Photoelectric effect",
+    "The photon as a packet of energy",
+    "E = hf Effect of intensity and frequency of incident light",
+    "Photocell (vacuum tube): structure and operation",
+    "Threshold frequency"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "E = hf, work function and photocells belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.03",
+   "L1": "Modern physics",
+   "name": "X-rays",
+   "syllabus_ref": "Modern Physics > The Electron > 4. X-rays (p43)",
+   "includes": [
+    "X-rays produced when high-energy electrons collide with target",
+    "Principles of the hot-cathode X-ray tube",
+    "X-ray production as inverse of photoelectric effect",
+    "Mention of properties of X-rays:",
+    "electromagnetic waves"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.04",
+   "L1": "Modern physics",
+   "name": "Structure of the atom and nucleus",
+   "syllabus_ref": "Modern Physics > The Nucleus > 1. Structure of the atom (p44); Modern Physics > The Nucleus > 2. Structure of the nucleus (p44)",
+   "includes": [
+    "Principle of Rutherford’s experiment",
+    "Bohr model, descriptive treatment only",
+    "Energy levels",
+    "Emission line spectra",
+    "hf = E2 – E1",
+    "Atomic nucleus as protons plus neutrons",
+    "Mass number A, atomic number Z, Z X, isotopes"
+   ],
+   "excludes": [
+    "Radioactive decay (PHY.MOD.05)"
+   ],
+   "boundary_rules": [
+    "Rutherford scattering, Bohr model, energy levels and line spectra, nuclear notation and isotopes belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.05",
+   "L1": "Modern physics",
+   "name": "Radioactivity and ionising radiation",
+   "syllabus_ref": "Modern Physics > The Nucleus > 3. Radioactivity (p44); Modern Physics > The Nucleus > 5. Ionising radiation and health hazards (p45)",
+   "includes": [
+    "Experimental evidence for three kinds of radiation: by deflection in electric or magnetic fields or ionisation",
+    "Nature and properties of alpha, beta and gamma emissions",
+    "Change in mass number and atomic number because of radioactive decay",
+    "Principle of operation of a detector of ionising radiation",
+    "Definition of becquerel (Bq) as one disintegration per second",
+    "General health hazards in use of ionising radiations, e.g",
+    "X-rays, nuclear radiation",
+    "Environmental radiation: the effect of ionising radiation on humans depends on the type of radiation, the acti"
+   ],
+   "excludes": [
+    "Fission and fusion (PHY.MOD.06)"
+   ],
+   "boundary_rules": [
+    "Alpha/beta/gamma properties, detectors, half-life and decay law, health hazards belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.MOD.06",
+   "L1": "Modern physics",
+   "name": "Nuclear energy: fission and fusion",
+   "syllabus_ref": "Modern Physics > The Nucleus > 4. Nuclear energy (p45)",
+   "includes": [
+    "Principles of fission and fusion",
+    "Mass-energy conservation in nuclear reactions, E = mc 2",
+    "Nuclear reactor (fuel, moderator, control rods, shielding, and heat exchanger)"
+   ],
+   "excludes": [
+    "Particle accelerator reactions (PHY.PAR.01)"
+   ],
+   "boundary_rules": [
+    "E = mc² for fission/fusion energy, chain reactions and reactors belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.PAR.01",
+   "L1": "Option 1: Particle physics",
+   "name": "Accelerators, conservation laws and mass-energy conversion in reactions",
+   "syllabus_ref": "Option 1: Particle Physics > Particle Physics > 1. Conservation of energy and momentum in nuclear reactions (p46); Option 1: Particle Physics > Particle Physics > 2. Acceleration of protons (p46); Option 1: Particle Physics > Particle Physics > 3. Converting mass into other forms of energy (p46); Option 1: Particle Physics > Particle Physics > 4. Converting other forms of energy into mass (p46)",
+   "includes": [
+    "Radioactive decay resulting in two particles",
+    "If momentum is not conserved, a third particle (neutrino) must be present",
+    "Cockcroft and Walton – proton energy approximately 1 MeV: outline of experiment",
+    "“Splitting the nucleus” 1 H + Li → He + He + Q 7 4 4 1 3 2 2 1 MeV 17.3 MeV Note energy gain",
+    "Consistent with E = mc",
+    "Reference to circular accelerators progressively increasing energy available: proton-proton collisions p + p +"
+   ],
+   "excludes": [],
+   "boundary_rules": [
+    "Cockcroft-Walton, circular accelerators, neutrino prediction from momentum conservation and pair production energy balance belong here."
+   ],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.PAR.02",
+   "L1": "Option 1: Particle physics",
+   "name": "Fundamental forces, particle families, antimatter and quarks",
+   "syllabus_ref": "Option 1: Particle Physics > Particle Physics > 5. Fundamental forces of nature (p46); Option 1: Particle Physics > Particle Physics > 6. Families of particles (p47); Option 1: Particle Physics > Particle Physics > 7. Anti-matter (p47); Option 1: Particle Physics > Particle Physics > 8. Quark model (p47)",
+   "includes": [
+    "Strong nuclear force: force binding nucleus, short range",
+    "Weak nuclear force: force between particles that are not subject to the strong force, short range",
+    "Electromagnetic force: force between charged particles, inverse square law",
+    "Gravitational force: inverse square law",
+    "42 OPTION 1: PARTICLE PHYSICS (CONTINUED)",
+    "Mass of particles comes from energy of the reactions – E m = c 2 The larger the energy the greater the variety",
+    "These particles are called “particle zoo”",
+    "Leptons: indivisible point objects, not subject to strong force, e.g",
+    "electron, positron, and neutrino",
+    "Baryons: subject to all forces, e.g"
+   ],
+   "excludes": [],
+   "boundary_rules": [],
+   "examples": []
+  },
+  {
+   "topic_id": "PHY.APE.01",
+   "L1": "Option 2: Applied electricity",
+   "name": "Diode applications, the transistor and logic gates",
+   "syllabus_ref": "Option 2: Applied Electricity > Applied Electricity > 5. Applications of diode (p48); Option 2: Applied Electricity > Applied Electricity > 6. The transistor (p48); Option 2: Applied Electricity > Applied Electricity > 7. Logic gates (p48)",
+   "includes": [
+    "P-n diode used as half-wave rectifier",
+    "Light-emitting diode (LED)",
+    "principle of operation",
+    "Photodiode",
+    "Basic structure of bi-polar transistor",
+    "The transistor as a voltage amplifier – purpose of bias and load resistors",
+    "The transistor as a voltage inverter",
+    "AND, OR and NOT gates"
+   ],
+   "excludes": [
+    "p-n junction physics (PHY.ELE.04)"
+   ],
+   "boundary_rules": [
+    "Rectification, LEDs, photodiodes, transistor amplifiers/switches and AND/OR/NOT gates belong here."
+   ],
+   "examples": []
+  }
+ ]
+}

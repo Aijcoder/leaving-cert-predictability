@@ -1,0 +1,14 @@
+requests
+pymupdf
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+jsonschema
+pyyaml
+tqdm
+pytest
+openai
+# addition: scripted Chromium for examinations.ie
+playwright

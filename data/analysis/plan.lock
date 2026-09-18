@@ -1,0 +1,7 @@
+{
+ "file": "analysis/plan.md",
+ "sha256": "903259906a23cc8f458272478a3b8aa747a4ba3a94b573edecca80eb1f915e36",
+ "locked_at": "2026-09-17T19:10:10+00:00",
+ "git_commit_at_lock": "386e18eeba73c733d638331aedac318751010591",
+ "note": "Locked before any real-data analysis result (WORKFLOW.md \u00a715.1). Labels are not yet produced; only synthetic-data development is allowed until the labels are frozen."
+}
