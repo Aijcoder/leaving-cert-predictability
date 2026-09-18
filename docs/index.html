@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What repeats in Leaving Cert papers</title>
+<meta name="description" content="Twenty-five years of Leaving Cert Physics and Maths papers: revising by topic frequency is worth about nine marks in a hundred; guessing which topic is due is worth nothing.">
+<meta property="og:title" content="What repeats in Leaving Cert papers">
+<meta property="og:description" content="74 papers, 3,549 marked parts, 25 years. Frequency helps. Rotation doesn't.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F5F7; --panel:#FFFFFF; --ink:#14181F; --ink-2:#39414E; --muted:#5C6572;
+  --rule:#DFE3E9; --rule-soft:#ECEFF3;
+  --s1:#2F6FD0; --s2:#CF6A1E; --s3:#8A4FAE;
+  --ramp-0:#EEF1F6; --ramp-1:#C9D9F0; --ramp-2:#9CBCE5; --ramp-3:#6899D6; --ramp-4:#3C74C2; --ramp-5:#1F4D91;
+  --ok:#2C7A54; --warn:#B4761B;
+  --shadow:0 1px 2px rgba(20,24,31,.06), 0 8px 24px -16px rgba(20,24,31,.28);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ground:#12151A; --panel:#171B22; --ink:#E9ECF1; --ink-2:#C3C9D4; --muted:#949CAA;
+  --rule:#252B35; --rule-soft:#1D222A;
+  --s1:#5B8EE8; --s2:#CF7D34; --s3:#A87AC9;
+  --ramp-0:#1A1F27; --ramp-1:#20304A; --ramp-2:#2B4670; --ramp-3:#3A6099; --ramp-4:#4E7EC4; --ramp-5:#7BA6E6;
+  --ok:#5FB287; --warn:#D2A04A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+}}
+:root[data-theme="dark"]{
+  --ground:#12151A; --panel:#171B22; --ink:#E9ECF1; --ink-2:#C3C9D4; --muted:#949CAA;
+  --rule:#252B35; --rule-soft:#1D222A;
+  --s1:#5B8EE8; --s2:#CF7D34; --s3:#A87AC9;
+  --ramp-0:#1A1F27; --ramp-1:#20304A; --ramp-2:#2B4670; --ramp-3:#3A6099; --ramp-4:#4E7EC4; --ramp-5:#7BA6E6;
+  --ok:#5FB287; --warn:#D2A04A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -20px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+.wrap{max-width:1060px; margin:0 auto; padding-inline:20px; padding-block:0 80px}
+h1,h2,h3{font-family:Newsreader,Georgia,"Times New Roman",serif; font-weight:600; text-wrap:balance; margin:0}
+h1{font-size:clamp(32px,5.4vw,50px); line-height:1.1; letter-spacing:-.015em}
+h2{font-size:clamp(22px,3vw,29px); line-height:1.18}
+h3{font-size:17.5px; font-weight:600; font-family:"Public Sans",sans-serif}
+p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); font-weight:700}
+
+.standing{position:sticky; top:env(safe-area-inset-top,0px); z-index:30;
+  background:var(--panel); border-bottom:1px solid var(--rule); font-size:12.5px; color:var(--muted)}
+.standing .wrap{display:flex; gap:14px; align-items:center; justify-content:space-between;
+  padding-block:9px; flex-wrap:wrap}
+.standing b{color:var(--ink-2); font-weight:600}
+.tglbtn{font:inherit; font-size:12.5px; color:var(--muted); background:none; border:1px solid var(--rule);
+  border-radius:999px; padding:3px 12px; cursor:pointer}
+.tglbtn:hover{color:var(--ink); border-color:var(--muted)}
+
+header.masthead{padding-block:56px 36px; border-bottom:1px solid var(--rule)}
+.masthead p.lede{margin-top:18px; max-width:64ch; font-size:17.5px; color:var(--ink-2)}
+.figures{display:flex; flex-wrap:wrap; gap:26px 42px; margin-top:28px}
+.fig .n{font-family:Newsreader,Georgia,serif; font-size:30px; line-height:1; font-variant-numeric:tabular-nums}
+.fig .k{font-size:12.5px; color:var(--muted); margin-top:5px}
+
+section{padding-block:46px; border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:flex; gap:18px; align-items:baseline; justify-content:space-between; flex-wrap:wrap}
+.sec-head p{color:var(--muted); font-size:14px; max-width:58ch; margin-top:9px}
+.panel{background:var(--panel); border:1px solid var(--rule); border-radius:10px; box-shadow:var(--shadow)}
+.prose{max-width:66ch; margin-top:18px; color:var(--ink-2)}
+.prose p + p{margin-top:13px}
+.prose b{color:var(--ink)}
+
+.tabs{display:flex; gap:4px; flex-wrap:wrap}
+.tab{font:inherit; font-size:13px; padding:6px 14px; border-radius:999px; border:1px solid transparent;
+  background:none; color:var(--muted); cursor:pointer}
+.tab:hover{color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink); color:var(--ground); border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--s1); outline-offset:2px; border-radius:4px}
+
+.chartbox{margin-top:22px; padding:20px 18px 12px}
+svg{display:block; width:100%; height:auto; overflow:visible}
+.legend{display:flex; gap:20px; flex-wrap:wrap; margin-top:4px; padding-inline:6px; font-size:13px; color:var(--ink-2)}
+.legend i{display:inline-block; width:22px; height:3px; border-radius:2px; vertical-align:middle; margin-right:8px}
+.legend .dash{background:repeating-linear-gradient(90deg,currentColor 0 6px,transparent 6px 10px)}
+
+.heat-scroll{overflow-x:auto; margin-top:20px; padding:18px 16px 8px}
+.heat-legend{display:flex; align-items:center; gap:10px; font-size:12px; color:var(--muted);
+  margin-top:12px; padding-inline:4px; flex-wrap:wrap}
+.heat-legend span.sw{width:26px; height:11px; display:inline-block; border-radius:2px}
+
+table{border-collapse:collapse; width:100%; font-size:13.5px}
+.tbl-scroll{overflow-x:auto; margin-top:20px; max-height:620px; overflow-y:auto}
+th,td{text-align:right; padding:9px 12px; border-bottom:1px solid var(--rule-soft); white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:700;
+  border-bottom:1px solid var(--rule); position:sticky; top:0; background:var(--panel); z-index:2}
+th[role=columnheader]{cursor:pointer; user-select:none}
+th[aria-sort="descending"]::after{content:" \2193"} th[aria-sort="ascending"]::after{content:" \2191"}
+tbody tr:hover{background:var(--rule-soft)}
+td.topic{max-width:340px; white-space:normal}
+td.topic .code{color:var(--muted); font-size:11.5px; display:block}
+.bar-track{display:inline-block; width:58px; height:7px; border-radius:2px; background:var(--rule);
+  vertical-align:middle; margin-right:8px}
+.bar{height:7px; border-radius:2px; background:var(--s1); display:inline-block; vertical-align:middle}
+
+.pill{display:inline-block; font-size:11.5px; padding:2px 9px; border-radius:999px; border:1px solid var(--rule); color:var(--muted)}
+.pill.yes{color:var(--ok); border-color:color-mix(in srgb, var(--ok) 40%, transparent)}
+.pill.no{color:var(--warn); border-color:color-mix(in srgb, var(--warn) 40%, transparent)}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:22px}
+.card{padding:18px}
+.card .q{font-size:13px; color:var(--muted)}
+.card .v{font-family:Newsreader,Georgia,serif; font-size:26px; margin-top:8px}
+.card .m{font-size:12.5px; color:var(--muted); margin-top:6px}
+
+.steps{counter-reset:s; margin-top:22px; display:grid; gap:2px}
+.step{display:grid; grid-template-columns:34px 1fr; gap:14px; padding:15px 0; border-top:1px solid var(--rule-soft)}
+.step:first-child{border-top:0}
+.step .i{counter-increment:s; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted); padding-top:2px}
+.step .i::before{content:counter(s,decimal-leading-zero)}
+.step h3{margin-bottom:4px}
+.step p{color:var(--ink-2); font-size:14.5px; max-width:62ch}
+
+.warn-list{margin-top:20px; display:grid; gap:14px}
+.warn-list div{padding-left:15px; border-left:2px solid var(--rule)}
+.warn-list b{display:block; color:var(--ink)}
+.warn-list span{color:var(--ink-2); font-size:14.5px}
+
+.tip{position:fixed; z-index:50; pointer-events:none; background:var(--panel); color:var(--ink);
+  border:1px solid var(--rule); border-radius:7px; box-shadow:var(--shadow); padding:8px 11px;
+  font-size:12.5px; line-height:1.45; max-width:255px; opacity:0; transition:opacity .09s}
+.tip.on{opacity:1}
+.tip b{font-weight:600}
+
+footer{padding-block:36px; color:var(--muted); font-size:12.5px; max-width:74ch}
+footer a{color:var(--ink-2)}
+footer p + p{margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){ .chartbox{padding:14px 10px 8px} th,td{padding:8px 9px} }
+</style>
+</head>
+<body>
+<div class="standing">
+  <div class="wrap">
+    <span><b>Retrospective.</b> Every figure here describes exams already sat. <b>Nothing here forecasts a future paper.</b></span>
+    <button class="tglbtn" id="theme" type="button">Switch theme</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Leaving Certificate · Higher Level · 2002–2026</p>
+    <h1>What actually repeats<br>in Leaving Cert papers</h1>
+    <p class="lede">Seventy-four papers, cut into 3,549 marked parts, each one matched to a syllabus topic using the
+      official marking scheme. Then one question: if you revise only part of the course, how much of the paper can
+      you still attempt — and is there anything to the idea that a topic is <em>due</em>?</p>
+    <div class="figures">
+      <div class="fig"><div class="n mono">74</div><div class="k">papers, with their marking schemes</div></div>
+      <div class="fig"><div class="n mono">3,549</div><div class="k">parts, each with its own marks</div></div>
+      <div class="fig"><div class="n mono">25</div><div class="k">years of Physics</div></div>
+      <div class="fig"><div class="n mono">86</div><div class="k">syllabus topics</div></div>
+      <div class="fig"><div class="n mono">4,000</div><div class="k">control runs before any real result</div></div>
+    </div>
+  </header>
+
+  <section id="finding">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">The finding</p>
+        <h2>Frequency pays. Rotation doesn't.</h2>
+        <p>Horizontal: how much of the course you revised. Vertical: the share of the paper you could have
+          attempted, counting the paper's own choice rules. Averaged over the years tested.</p>
+      </div>
+      <div class="tabs" id="curve-tabs" role="group" aria-label="Choose a subject"></div>
+    </div>
+    <div class="panel chartbox">
+      <svg id="curve" viewBox="0 0 900 430" role="img" aria-label="Attemptable share against share of topics revised"></svg>
+      <div class="legend" id="curve-legend"></div>
+    </div>
+    <div class="prose">
+      <p>Going from picking topics at random to picking the ones that come up most often is worth about
+        <b>nine marks in every hundred</b>. Adding a rule that chases topics which have been away a while is worth
+        about <b>half a mark</b> — and that half mark cannot be separated from noise.</p>
+      <p>On Maths the two upper curves sit on top of each other exactly. That is not a missing line; it is the
+        result.</p>
+    </div>
+  </section>
+
+  <section id="decomp">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Breakdown</p>
+        <h2>Where those marks come from</h2>
+        <p>Start from the worst case — every question compulsory, topics picked at random — and add one advantage
+          at a time, for a student who revised half the course.</p>
+      </div>
+    </div>
+    <div class="panel chartbox">
+      <svg id="decomp-chart" viewBox="0 0 900 250" role="img" aria-label="Decomposition of attemptable share"></svg>
+      <div class="legend" id="decomp-legend"></div>
+    </div>
+    <div class="prose">
+      <p>The largest single advantage is not knowledge at all — it is <b>the structure of the paper</b>. Being
+        allowed to choose your questions is worth about twenty marks per hundred in Physics, and it is free.</p>
+    </div>
+    <div class="cards" id="tests"></div>
+  </section>
+
+  <section id="atlas">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">The record</p>
+        <h2>Every topic, every year</h2>
+        <p>One row per topic, one column per year, shaded by the share of that paper's marks the topic carried.
+          Blank means it was not examined that year. Hover any cell.</p>
+      </div>
+      <div class="tabs" id="atlas-tabs" role="group" aria-label="Choose a subject"></div>
+    </div>
+    <div class="panel heat-scroll">
+      <svg id="heat" role="img" aria-label="Topic by year grid"></svg>
+    </div>
+    <div class="heat-legend" id="heat-legend"></div>
+    <div class="prose">
+      <p>Rows are ordered by how many past papers the topic appeared in. <b>That order is a record of what has
+        happened, not a ranking of what is coming.</b> The column showing the longest run of absent years is there
+        for completeness — it is precisely the signal this study tested and could not support.</p>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">The numbers</p>
+        <h2>Topic by topic</h2>
+        <p>Click a column heading to sort. "Typical share" averages over every sitting, including the ones where
+          the topic did not appear.</p>
+      </div>
+      <div class="tabs" id="hist-tabs" role="group" aria-label="Choose a subject"></div>
+    </div>
+    <div class="panel tbl-scroll">
+      <table id="hist-table">
+        <thead><tr>
+          <th role="columnheader" data-k="name">Topic</th>
+          <th role="columnheader" data-k="count">Appeared in</th>
+          <th role="columnheader" data-k="rate">Rate</th>
+          <th role="columnheader" data-k="mean">Typical share</th>
+          <th role="columnheader" data-k="gap">Longest absence</th>
+          <th role="columnheader" data-k="first">First</th>
+          <th role="columnheader" data-k="last">Last</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="method">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Method</p>
+        <h2>How this was measured</h2>
+        <p>The full code and reports are in the repository; this is the shape of it.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="i"></div><div>
+        <h3>Split the papers</h3>
+        <p>Each paper cut into its smallest marked pieces, with marks taken from the official marking scheme. All
+          74 papers add back up to their printed totals — that is the check that the splitting worked.</p></div></div>
+      <div class="step"><div class="i"></div><div>
+        <h3>Record what you may skip</h3>
+        <p>"Answer any five of eight" changes everything for a partly-revised student, so every paper's rubric was
+          parsed into a structure the program scores against.</p></div></div>
+      <div class="step"><div class="i"></div><div>
+        <h3>Freeze the topic lists</h3>
+        <p>Topics taken from the syllabus headings themselves, then fingerprinted before any labelling, so the
+          categories could not be reshaped once results appeared.</p></div></div>
+      <div class="step"><div class="i"></div><div>
+        <h3>Label every part</h3>
+        <p>Each part read with its marking-scheme steps; every scoring step assigned a topic. Weights come from the
+          marks the scheme awards, computed in code. 3,546 of 3,549 parts got a valid label.</p></div></div>
+      <div class="step"><div class="i"></div><div>
+        <h3>Score without hindsight</h3>
+        <p>For each year, a method sees only earlier years. This is enforced in the program: reaching for its own
+          year or a later one raises an error and the run stops.</p></div></div>
+      <div class="step"><div class="i"></div><div>
+        <h3>Test the tester first</h3>
+        <p>Before any real paper was touched, the whole machine ran 4,000 times on synthetic papers with a known
+          truth. It had to report a false discovery no more than 8% of the time when there was nothing there, and
+          find a planted pattern at least 80% of the time. Those controls caught two real defects before any result
+          existed.</p></div></div>
+    </div>
+    <div class="panel chartbox" style="margin-top:26px">
+      <svg id="qa-chart" viewBox="0 0 900 300" role="img" aria-label="Label self-consistency"></svg>
+      <div class="legend" id="qa-legend"></div>
+    </div>
+    <div class="prose">
+      <p>Labels came from a language model (<span class="mono">deepseek-v4-1-flash-260910</span>) reading each part
+        with its marking scheme. Relabelling a 10% sample from scratch gives the same main topic 91–100% of the
+        time. They have not been checked against a teacher's judgement on a blind sample.</p>
+    </div>
+  </section>
+
+  <section id="limits">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Before you use it</p>
+        <h2>What this cannot tell you</h2>
+        <p>The tempting misuse of this page is to read the topic table as a tip sheet. Half of that is supported.</p>
+      </div>
+    </div>
+    <div class="warn-list">
+      <div><b>"Heat capacity appeared on all 25 papers" is a fact you can act on.</b>
+        <span>"Radioactivity is due this year" is not, however the table is sorted. That claim was tested directly
+        and failed.</span></div>
+      <div><b>The State Examinations Commission sets the papers, not a pattern.</b>
+        <span>Syllabuses change, examiners change, and nothing obliges the next paper to resemble the last 25.</span></div>
+      <div><b>Only Physics carries a confirmed result.</b>
+        <span>It has 25 sittings. Maths has 13 on the current syllabus, so its numbers are exploratory. Applied
+        Maths has 4 and is described but never analysed.</span></div>
+      <div><b>"No evidence" is not "proven absent".</b>
+        <span>It means any timing effect is too small for this much data to detect — and small enough to be worth
+        under half a mark in a hundred.</span></div>
+      <div><b>The 2020–2022 papers carried Covid adjustments</b>
+        <span>and the 2020 papers' month could not be determined. Excluding those years changes nothing important.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Papers and marking schemes are published by the <a href="https://www.examinations.ie/">State Examinations
+      Commission</a>. Nothing on this page reproduces them: it holds statistics, topic labels and links. To read a
+      question, use the SEC's own archive.</p>
+    <p><a href="https://github.com/Aijcoder/leaving-cert-predictability">Code, reports and data</a> ·
+      <a href="https://github.com/Aijcoder/leaving-cert-predictability/wiki">Wiki</a> · MIT licence</p>
+    <p>Retrospective analysis of past papers only. No prediction of any future examination.</p>
+  </footer>
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+<script id="lcdata" type="application/json">{"statement":"Retrospective analysis of past papers only. No prediction of any future examination.","datasets":{"PHY":{"zh":"Physics","en":"Physics","years":[2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"topics":[{"id":"PHY.MEC.01","name":"Linear motion, vectors and scalars","L1":"Mechanics","count":23,"rate":0.92,"mean":0.078336,"sd":0.046344,"gap":1,"first":"2003","last":"2026","row":[0.0,0.1325,0.1258,0.051,0.0575,0.0125,0.054,0.1235,0.1,0.0445,0.125,0.0418,0.0875,0.0362,0.0175,0.0525,0.03,0.1263,0.1163,0.0461,0.1118,0.1908,0.099,0.062,0.1145]},{"id":"PHY.MEC.02","name":"Newton's laws of motion and conservation of momentum","L1":"Mechanics","count":24,"rate":0.96,"mean":0.071488,"sd":0.038732,"gap":1,"first":"2002","last":"2026","row":[0.0895,0.07,0.101,0.0785,0.025,0.0575,0.035,0.0932,0.07,0.073,0.015,0.0525,0.1525,0.0375,0.0315,0.0275,0.0958,0.035,0.1358,0.1039,0.0,0.084,0.1042,0.1313,0.088]},{"id":"PHY.MEC.03","name":"Circular motion","L1":"Mechanics","count":21,"rate":0.84,"mean":0.036139,"sd":0.026651,"gap":1,"first":"2002","last":"2026","row":[0.0175,0.0,0.015,0.0465,0.075,0.0,0.015,0.015,0.0225,0.035,0.065,0.06,0.0,0.0217,0.049,0.0175,0.0525,0.047,0.0,0.0526,0.0921,0.035,0.0788,0.0693,0.0215]},{"id":"PHY.MEC.04","name":"Gravitation","L1":"Mechanics","count":21,"rate":0.84,"mean":0.042165,"sd":0.034842,"gap":2,"first":"2003","last":"2025","row":[0.0,0.0175,0.055,0.066,0.0,0.0,0.125,0.0175,0.1025,0.0175,0.03,0.08,0.0175,0.0963,0.024,0.035,0.0175,0.0927,0.07,0.0428,0.0484,0.0175,0.0175,0.055,0.009]},{"id":"PHY.MEC.05","name":"Density and pressure","L1":"Mechanics","count":19,"rate":0.76,"mean":0.045049,"sd":0.044098,"gap":2,"first":"2003","last":"2026","row":[0.0,0.0825,0.0175,0.028,0.07,0.0175,0.035,0.055,0.0,0.1,0.0425,0.1,0.0325,0.1,0.016,0.0175,0.0,0.0105,0.04,0.0,0.1707,0.0315,0.0,0.035,0.1245]},{"id":"PHY.MEC.06","name":"Moments and conditions for equilibrium","L1":"Mechanics","count":15,"rate":0.6,"mean":0.037541,"sd":0.045227,"gap":2,"first":"2002","last":"2026","row":[0.1,0.0175,0.0,0.0,0.0175,0.1,0.0,0.0,0.0175,0.105,0.0,0.1,0.0,0.0,0.115,0.07,0.0175,0.007,0.0,0.023,0.1385,0.0,0.0175,0.075,0.0175]},{"id":"PHY.MEC.07","name":"Simple harmonic motion and Hooke's law","L1":"Mechanics","count":23,"rate":0.92,"mean":0.073272,"sd":0.056518,"gap":2,"first":"2002","last":"2026","row":[0.1355,0.0175,0.0,0.0,0.1,0.14,0.1,0.0633,0.015,0.07,0.08,0.0525,0.07,0.0175,0.071,0.1775,0.07,0.0175,0.0175,0.2237,0.1359,0.0525,0.0175,0.07,0.1175]},{"id":"PHY.MEC.08","name":"Work, energy and power","L1":"Mechanics","count":18,"rate":0.72,"mean":0.030067,"sd":0.024497,"gap":2,"first":"2002","last":"2024","row":[0.0325,0.0225,0.0307,0.07,0.0467,0.05,0.016,0.0325,0.0,0.0175,0.0575,0.0872,0.0,0.0432,0.0335,0.0,0.0793,0.0387,0.0,0.0079,0.0158,0.0315,0.028,0.0,0.0105]},{"id":"PHY.TMP.01","name":"Temperature and thermometers","L1":"Temperature","count":18,"rate":0.72,"mean":0.023032,"sd":0.018419,"gap":2,"first":"2002","last":"2025","row":[0.0175,0.07,0.0175,0.0175,0.0,0.0067,0.0175,0.0175,0.0367,0.045,0.0,0.055,0.0235,0.0408,0.025,0.0175,0.0,0.0175,0.0,0.023,0.023,0.03,0.01,0.0575,0.007]},{"id":"PHY.HEA.01","name":"Heat capacity and latent heat","L1":"Heat","count":25,"rate":1.0,"mean":0.092582,"sd":0.038458,"gap":0,"first":"2002","last":"2026","row":[0.093,0.1165,0.1575,0.1,0.0517,0.1108,0.1,0.035,0.1025,0.06,0.07,0.0175,0.0725,0.1,0.1005,0.1,0.054,0.1,0.0515,0.1105,0.2105,0.1,0.09,0.0825,0.128]},{"id":"PHY.HEA.02","name":"Heat transfer: conduction, convection and radiation","L1":"Heat","count":15,"rate":0.6,"mean":0.020147,"sd":0.023491,"gap":3,"first":"2007","last":"2026","row":[0.007,0.0125,0.0,0.0,0.01,0.0175,0.02,0.0875,0.0275,0.035,0.035,0.0175,0.0325,0.0,0.0,0.0,0.0175,0.0158,0.0225,0.0934,0.0,0.0175,0.0175,0.0,0.0175]},{"id":"PHY.WAV.01","name":"Wave properties and wave phenomena","L1":"Waves","count":21,"rate":0.84,"mean":0.031659,"sd":0.024391,"gap":2,"first":"2002","last":"2025","row":[0.11,0.0475,0.0175,0.0293,0.038,0.0135,0.0,0.015,0.0175,0.035,0.0867,0.0175,0.0442,0.024,0.0473,0.0175,0.0175,0.0525,0.0175,0.0184,0.0461,0.006,0.035,0.0315,0.0065]},{"id":"PHY.WAV.02","name":"Doppler effect","L1":"Waves","count":18,"rate":0.72,"mean":0.039222,"sd":0.036843,"gap":2,"first":"2002","last":"2026","row":[0.0175,0.08,0.0,0.0125,0.0175,0.0965,0.055,0.0,0.14,0.0175,0.0,0.0,0.085,0.0175,0.051,0.0575,0.0175,0.0,0.07,0.0737,0.0724,0.04,0.0,0.0175,0.042]},{"id":"PHY.SND.01","name":"Sound: nature, characteristics, resonance and intensity level","L1":"Vibrations and sound","count":21,"rate":0.84,"mean":0.035362,"sd":0.028801,"gap":1,"first":"2002","last":"2026","row":[0.0175,0.0475,0.0175,0.03,0.0175,0.07,0.015,0.0175,0.0875,0.045,0.0175,0.0375,0.0,0.042,0.0,0.0175,0.104,0.0,0.0375,0.023,0.023,0.0675,0.0775,0.0,0.072]},{"id":"PHY.SND.02","name":"Vibrations in strings and pipes","L1":"Vibrations and sound","count":22,"rate":0.88,"mean":0.086132,"sd":0.049575,"gap":1,"first":"2002","last":"2026","row":[0.085,0.0,0.1,0.0633,0.1245,0.0,0.0175,0.1,0.0,0.06,0.1,0.1025,0.1,0.08,0.1105,0.1,0.036,0.0425,0.16,0.1546,0.2039,0.1025,0.1,0.1175,0.093]},{"id":"PHY.LIG.01","name":"Reflection and mirrors","L1":"Light","count":13,"rate":0.52,"mean":0.034443,"sd":0.042005,"gap":2,"first":"2007","last":"2026","row":[0.0,0.0,0.0,0.007,0.0,0.1,0.0,0.0175,0.0,0.0175,0.0,0.1,0.07,0.0,0.007,0.0775,0.0525,0.1,0.0175,0.1316,0.0,0.1,0.008,0.0175,0.0375]},{"id":"PHY.LIG.02","name":"Refraction and total internal reflection","L1":"Light","count":25,"rate":1.0,"mean":0.067247,"sd":0.045087,"gap":0,"first":"2002","last":"2026","row":[0.015,0.0175,0.07,0.1,0.015,0.0175,0.0855,0.07,0.1175,0.07,0.07,0.0175,0.128,0.0325,0.028,0.035,0.1525,0.07,0.1,0.0421,0.1316,0.0175,0.0525,0.17,0.056]},{"id":"PHY.LIG.03","name":"Lenses","L1":"Light","count":15,"rate":0.6,"mean":0.03422,"sd":0.040758,"gap":2,"first":"2002","last":"2026","row":[0.055,0.1,0.0175,0.0,0.125,0.0,0.0545,0.1,0.0,0.0,0.1175,0.0,0.0,0.055,0.0175,0.0,0.0,0.0175,0.0,0.0395,0.023,0.0175,0.092,0.0,0.024]},{"id":"PHY.LIG.04","name":"Diffraction, interference and polarisation of light","L1":"Light","count":21,"rate":0.84,"mean":0.071391,"sd":0.046396,"gap":1,"first":"2002","last":"2026","row":[0.0475,0.0,0.1,0.0875,0.075,0.0,0.1175,0.0963,0.0,0.092,0.0,0.03,0.06,0.1,0.1175,0.0725,0.0902,0.0625,0.0175,0.1842,0.0461,0.1175,0.04,0.1085,0.1225]},{"id":"PHY.LIG.05","name":"Dispersion, colour, electromagnetic spectrum and the spectrometer","L1":"Light","count":15,"rate":0.6,"mean":0.027722,"sd":0.030834,"gap":2,"first":"2006","last":"2025","row":[0.0,0.0,0.0,0.0,0.015,0.0,0.035,0.0488,0.063,0.0255,0.0707,0.0325,0.045,0.01,0.0175,0.0855,0.048,0.007,0.0175,0.0336,0.0,0.0,0.121,0.0175,0.0]},{"id":"PHY.ELE.01","name":"Static electricity: charges and electroscope","L1":"Electricity","count":16,"rate":0.64,"mean":0.027639,"sd":0.026279,"gap":2,"first":"2002","last":"2026","row":[0.063,0.0,0.0355,0.0175,0.0,0.05,0.025,0.0,0.01,0.051,0.0,0.0333,0.0,0.095,0.0,0.0175,0.0,0.071,0.03,0.0592,0.023,0.045,0.0175,0.0,0.0475]},{"id":"PHY.ELE.02","name":"Coulomb's law, electric field and potential difference","L1":"Electricity","count":25,"rate":1.0,"mean":0.057562,"sd":0.036739,"gap":0,"first":"2002","last":"2026","row":[0.035,0.0835,0.015,0.165,0.0175,0.135,0.028,0.0325,0.06,0.089,0.0307,0.0717,0.045,0.045,0.064,0.0175,0.0175,0.069,0.0175,0.0543,0.073,0.07,0.0325,0.0978,0.073]},{"id":"PHY.ELE.03","name":"Capacitance","L1":"Electricity","count":20,"rate":0.8,"mean":0.043576,"sd":0.036482,"gap":1,"first":"2002","last":"2026","row":[0.0175,0.0,0.1115,0.0105,0.07,0.0175,0.045,0.095,0.035,0.0175,0.0,0.0293,0.08,0.0175,0.0175,0.0,0.0535,0.04,0.0785,0.0484,0.0658,0.0,0.11,0.0175,0.112]},{"id":"PHY.ELE.04","name":"Electric current, emf and conduction in materials","L1":"Electricity","count":22,"rate":0.88,"mean":0.043389,"sd":0.031074,"gap":1,"first":"2002","last":"2026","row":[0.1227,0.1172,0.0112,0.053,0.0352,0.0175,0.0475,0.03,0.0542,0.024,0.0,0.015,0.0175,0.0382,0.078,0.0783,0.034,0.03,0.0475,0.0336,0.0799,0.029,0.056,0.0,0.035]},{"id":"PHY.ELE.05","name":"Resistance, resistivity and potential divider","L1":"Electricity","count":25,"rate":1.0,"mean":0.127966,"sd":0.055556,"gap":0,"first":"2002","last":"2026","row":[0.1378,0.031,0.1398,0.172,0.065,0.14,0.1625,0.07,0.139,0.1035,0.1575,0.211,0.055,0.121,0.1575,0.1855,0.0362,0.035,0.145,0.1414,0.1405,0.0973,0.1315,0.2672,0.157]},{"id":"PHY.ELE.06","name":"Effects of electric current and domestic circuits","L1":"Electricity","count":19,"rate":0.76,"mean":0.042461,"sd":0.033858,"gap":2,"first":"2002","last":"2024","row":[0.059,0.0745,0.105,0.035,0.0965,0.0362,0.045,0.025,0.0285,0.075,0.0275,0.0215,0.094,0.042,0.007,0.0175,0.0737,0.0175,0.0,0.1053,0.0,0.0053,0.06,0.0,0.0105]},{"id":"PHY.ELE.07","name":"Magnetism and magnetic fields","L1":"Electricity","count":14,"rate":0.56,"mean":0.021909,"sd":0.020464,"gap":4,"first":"2003","last":"2025","row":[0.0,0.0382,0.04,0.035,0.039,0.0325,0.0,0.0,0.009,0.0,0.0175,0.0,0.0,0.037,0.015,0.0,0.0542,0.0,0.055,0.0592,0.049,0.02,0.0125,0.0345,0.0]},{"id":"PHY.ELE.08","name":"Current and moving charge in a magnetic field","L1":"Electricity","count":19,"rate":0.76,"mean":0.047038,"sd":0.039129,"gap":1,"first":"2002","last":"2026","row":[0.0175,0.0675,0.08,0.0175,0.0,0.0712,0.007,0.06,0.0,0.0975,0.0,0.04,0.0,0.1285,0.055,0.035,0.0,0.14,0.039,0.0586,0.0891,0.035,0.05,0.0175,0.07]},{"id":"PHY.ELE.09","name":"Electromagnetic induction, alternating current and mutual/self-induction","L1":"Electricity","count":23,"rate":0.92,"mean":0.085411,"sd":0.046452,"gap":1,"first":"2002","last":"2026","row":[0.07,0.0925,0.0875,0.1575,0.1182,0.1075,0.14,0.0775,0.035,0.045,0.035,0.099,0.07,0.103,0.06,0.009,0.1825,0.0105,0.0255,0.0757,0.0921,0.1532,0.1105,0.1435,0.035]},{"id":"PHY.MOD.01","name":"The electron and thermionic emission","L1":"Modern physics","count":12,"rate":0.48,"mean":0.01633,"sd":0.019394,"gap":5,"first":"2003","last":"2026","row":[0.0,0.074,0.015,0.007,0.015,0.0175,0.0,0.0,0.015,0.0175,0.0,0.0,0.0,0.0105,0.006,0.0307,0.0105,0.0158,0.028,0.0,0.0,0.0288,0.056,0.006,0.055]},{"id":"PHY.MOD.02","name":"Photoelectric emission and the photon","L1":"Modern physics","count":24,"rate":0.96,"mean":0.062401,"sd":0.037032,"gap":1,"first":"2002","last":"2026","row":[0.0867,0.025,0.107,0.07,0.0375,0.0,0.0525,0.14,0.0158,0.0875,0.082,0.0245,0.0333,0.06,0.0473,0.0612,0.0625,0.045,0.04,0.1151,0.1151,0.0715,0.033,0.13,0.0175]},{"id":"PHY.MOD.03","name":"X-rays","L1":"Modern physics","count":10,"rate":0.4,"mean":0.019545,"sd":0.029564,"gap":4,"first":"2002","last":"2024","row":[0.0532,0.0,0.0,0.0105,0.055,0.0,0.0,0.0175,0.125,0.0,0.0,0.0,0.0,0.0695,0.0,0.0307,0.007,0.0425,0.0,0.0224,0.0,0.0213,0.03,0.004,0.0]},{"id":"PHY.MOD.04","name":"Structure of the atom and nucleus","L1":"Modern physics","count":15,"rate":0.6,"mean":0.02993,"sd":0.033035,"gap":4,"first":"2002","last":"2024","row":[0.07,0.035,0.0,0.035,0.0325,0.0475,0.0,0.015,0.0,0.0,0.0067,0.0135,0.0175,0.0175,0.0175,0.0825,0.0,0.0367,0.07,0.1069,0.1118,0.0,0.024,0.0085,0.0]},{"id":"PHY.MOD.05","name":"Radioactivity and ionising radiation","L1":"Modern physics","count":24,"rate":0.96,"mean":0.084858,"sd":0.04277,"gap":0,"first":"2003","last":"2026","row":[0.0,0.105,0.0742,0.1175,0.02,0.0925,0.0175,0.08,0.0595,0.1,0.0175,0.135,0.095,0.135,0.1035,0.07,0.1225,0.035,0.09,0.0395,0.1197,0.11,0.163,0.0795,0.14]},{"id":"PHY.MOD.06","name":"Nuclear energy: fission and fusion","L1":"Modern physics","count":21,"rate":0.84,"mean":0.052157,"sd":0.039211,"gap":1,"first":"2002","last":"2025","row":[0.0475,0.0175,0.0375,0.0225,0.14,0.1225,0.0875,0.0525,0.0475,0.0175,0.1175,0.0615,0.1,0.0,0.075,0.05,0.0935,0.0525,0.05,0.0,0.0559,0.0,0.0255,0.03,0.0]},{"id":"PHY.PAR.01","name":"Accelerators, conservation laws and mass-energy conversion in reactions","L1":"Option 1: Particle physics","count":23,"rate":0.92,"mean":0.054996,"sd":0.030588,"gap":1,"first":"2002","last":"2026","row":[0.0575,0.0425,0.0158,0.0525,0.03,0.0022,0.1125,0.0625,0.061,0.08,0.1005,0.0715,0.0875,0.0,0.07,0.0225,0.0403,0.055,0.03,0.1207,0.0809,0.057,0.041,0.048,0.0335]},{"id":"PHY.PAR.02","name":"Fundamental forces, particle families, antimatter and quarks","L1":"Option 1: Particle physics","count":22,"rate":0.88,"mean":0.043911,"sd":0.025751,"gap":2,"first":"2002","last":"2026","row":[0.0525,0.075,0.0475,0.0455,0.055,0.0352,0.0675,0.0175,0.1032,0.0475,0.03,0.0,0.0,0.061,0.0175,0.0,0.0648,0.0325,0.0655,0.0691,0.0164,0.068,0.0615,0.032,0.033]},{"id":"PHY.APE.01","name":"Diode applications, the transistor and logic gates","L1":"Option 2: Applied electricity","count":22,"rate":0.88,"mean":0.091527,"sd":0.059165,"gap":1,"first":"2002","last":"2026","row":[0.0875,0.0875,0.07,0.007,0.1275,0.1175,0.11,0.0725,0.1175,0.0175,0.2125,0.0067,0.112,0.0,0.095,0.079,0.03,0.177,0.065,0.1934,0.125,0.205,0.0545,0.0415,0.077]}]},"PM":{"zh":"Maths","en":"Mathematics","years":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"topics":[{"id":"PM.PRB.01","name":"Counting: arrangements and selections","L1":"Statistics and Probability","count":7,"rate":0.5385,"mean":0.01789,"sd":0.013001,"gap":3,"first":"2014","last":"2025","row":[0.0167,0.0075,0.0167,0.0033,0.0333,0.015,0.005,0.0091,0.0068,0.03,0.0425,0.0383,0.0083]},{"id":"PM.PRB.02","name":"Concepts of probability","L1":"Statistics and Probability","count":13,"rate":1.0,"mean":0.069196,"sd":0.026272,"gap":0,"first":"2014","last":"2026","row":[0.0417,0.1108,0.0533,0.095,0.0333,0.0533,0.0533,0.0841,0.0955,0.055,0.0758,0.11,0.0383]},{"id":"PM.PRB.03","name":"Bernoulli trials, binomial and normal distribution probabilities","L1":"Statistics and Probability","count":13,"rate":1.0,"mean":0.051667,"sd":0.038422,"gap":0,"first":"2014","last":"2026","row":[0.0167,0.025,0.025,0.03,0.05,0.045,0.0883,0.1591,0.0909,0.0283,0.0333,0.025,0.055]},{"id":"PM.STA.01","name":"Statistical reasoning and data collection","L1":"Statistics and Probability","count":1,"rate":0.0769,"mean":0.002914,"sd":0.00682,"gap":0,"first":"2014","last":"2014","row":[0.025,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0045,0.0,0.0,0.0083,0.0]},{"id":"PM.STA.02","name":"Representing and describing data","L1":"Statistics and Probability","count":8,"rate":0.6154,"mean":0.030973,"sd":0.027046,"gap":3,"first":"2014","last":"2026","row":[0.0567,0.0,0.0,0.025,0.02,0.005,0.0133,0.0,0.0818,0.0333,0.05,0.0458,0.0717]},{"id":"PM.STA.03","name":"Statistical inference","L1":"Statistics and Probability","count":13,"rate":1.0,"mean":0.037471,"sd":0.013188,"gap":0,"first":"2014","last":"2026","row":[0.0333,0.0417,0.0583,0.025,0.045,0.03,0.0283,0.0341,0.0614,0.0417,0.0167,0.0217,0.05]},{"id":"PM.GEO.01","name":"Synthetic geometry: theorems, proofs and constructions","L1":"Geometry and Trigonometry","count":12,"rate":0.9231,"mean":0.049143,"sd":0.028204,"gap":1,"first":"2014","last":"2026","row":[0.1083,0.0492,0.0417,0.045,0.0367,0.0417,0.0,0.0682,0.0682,0.0367,0.0933,0.0333,0.0167]},{"id":"PM.GEO.02","name":"Co-ordinate geometry of the line","L1":"Geometry and Trigonometry","count":13,"rate":1.0,"mean":0.055962,"sd":0.022165,"gap":0,"first":"2014","last":"2026","row":[0.0733,0.0417,0.0583,0.0492,0.0383,0.0283,0.045,0.0659,0.0341,0.0783,0.07,0.11,0.035]},{"id":"PM.GEO.03","name":"Co-ordinate geometry of the circle","L1":"Geometry and Trigonometry","count":12,"rate":0.9231,"mean":0.044633,"sd":0.021081,"gap":1,"first":"2014","last":"2026","row":[0.0583,0.0417,0.025,0.0167,0.0083,0.045,0.0433,0.0375,0.0727,0.03,0.085,0.0542,0.0625]},{"id":"PM.GEO.04","name":"Trigonometry of triangles, sectors and 3D problems","L1":"Geometry and Trigonometry","count":13,"rate":1.0,"mean":0.114272,"sd":0.035675,"gap":0,"first":"2014","last":"2026","row":[0.05,0.1208,0.1017,0.1625,0.05,0.1667,0.1508,0.1227,0.1386,0.1208,0.1,0.0867,0.1142]},{"id":"PM.GEO.05","name":"Trigonometric functions, identities and equations","L1":"Geometry and Trigonometry","count":13,"rate":1.0,"mean":0.063893,"sd":0.027949,"gap":0,"first":"2014","last":"2026","row":[0.06,0.0933,0.1,0.06,0.05,0.0283,0.0267,0.1023,0.1125,0.0583,0.0317,0.0533,0.0542]},{"id":"PM.GEO.06","name":"Transformation geometry and enlargements","L1":"Geometry and Trigonometry","count":2,"rate":0.1538,"mean":0.006218,"sd":0.007822,"gap":0,"first":"2025","last":"2026","row":[0.0083,0.01,0.0083,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0125,0.025,0.0167]},{"id":"PM.NUM.01","name":"Number systems, irrational numbers and proof","L1":"Number","count":9,"rate":0.6923,"mean":0.026894,"sd":0.022039,"gap":1,"first":"2014","last":"2026","row":[0.0267,0.0083,0.025,0.0,0.0192,0.0333,0.0283,0.0784,0.0045,0.0592,0.0,0.025,0.0417]},{"id":"PM.NUM.02","name":"Sequences, series and limits","L1":"Number","count":12,"rate":0.9231,"mean":0.074178,"sd":0.040829,"gap":1,"first":"2014","last":"2026","row":[0.05,0.0617,0.0917,0.0292,0.1633,0.075,0.0483,0.1091,0.1227,0.03,0.01,0.09,0.0833]},{"id":"PM.NUM.03","name":"Indices and logarithms","L1":"Number","count":11,"rate":0.8462,"mean":0.041195,"sd":0.031098,"gap":1,"first":"2014","last":"2026","row":[0.0333,0.0,0.0467,0.03,0.0467,0.005,0.0517,0.0568,0.1295,0.0267,0.02,0.0292,0.06]},{"id":"PM.NUM.04","name":"Arithmetic: applied and financial mathematics","L1":"Number","count":11,"rate":0.8462,"mean":0.038631,"sd":0.026581,"gap":1,"first":"2014","last":"2026","row":[0.02,0.05,0.025,0.1067,0.0167,0.005,0.0492,0.0523,0.0091,0.0667,0.0467,0.03,0.025]},{"id":"PM.NUM.05","name":"Length, area and volume","L1":"Number","count":12,"rate":0.9231,"mean":0.044977,"sd":0.022725,"gap":0,"first":"2015","last":"2026","row":[0.0,0.0283,0.0183,0.035,0.0417,0.0433,0.0467,0.0955,0.0409,0.0675,0.0633,0.0583,0.0458]},{"id":"PM.ALG.01","name":"Algebraic expressions and polynomials","L1":"Algebra","count":11,"rate":0.8462,"mean":0.052809,"sd":0.026789,"gap":1,"first":"2014","last":"2026","row":[0.0867,0.0425,0.0117,0.0408,0.0317,0.0758,0.0392,0.0545,0.0761,0.0,0.0658,0.08,0.0817]},{"id":"PM.ALG.02","name":"Solving equations","L1":"Algebra","count":13,"rate":1.0,"mean":0.098176,"sd":0.043291,"gap":0,"first":"2014","last":"2026","row":[0.05,0.0508,0.0783,0.0533,0.0567,0.0858,0.0675,0.1784,0.167,0.13,0.1117,0.1017,0.145]},{"id":"PM.ALG.03","name":"Inequalities","L1":"Algebra","count":3,"rate":0.2308,"mean":0.009068,"sd":0.007457,"gap":2,"first":"2021","last":"2025","row":[0.0,0.0,0.01,0.0,0.0117,0.0,0.0117,0.0159,0.0136,0.0033,0.0217,0.02,0.01]},{"id":"PM.ALG.04","name":"Complex numbers","L1":"Algebra","count":13,"rate":1.0,"mean":0.045927,"sd":0.016216,"gap":0,"first":"2014","last":"2026","row":[0.025,0.03,0.0417,0.0417,0.0242,0.0417,0.0417,0.0682,0.0864,0.05,0.05,0.0467,0.05]},{"id":"PM.FUN.01","name":"Functions and their graphs","L1":"Functions","count":13,"rate":1.0,"mean":0.053059,"sd":0.020611,"gap":0,"first":"2014","last":"2026","row":[0.0533,0.0317,0.0417,0.0625,0.105,0.0408,0.03,0.067,0.0352,0.0733,0.0667,0.0475,0.035]},{"id":"PM.FUN.02","name":"Differentiation","L1":"Functions","count":13,"rate":1.0,"mean":0.071428,"sd":0.028929,"gap":0,"first":"2014","last":"2026","row":[0.0542,0.0683,0.0542,0.0517,0.0367,0.0683,0.045,0.1159,0.1443,0.0942,0.06,0.0692,0.0667]},{"id":"PM.FUN.03","name":"Applications of differentiation","L1":"Functions","count":12,"rate":0.9231,"mean":0.05345,"sd":0.028334,"gap":1,"first":"2014","last":"2026","row":[0.0358,0.0417,0.0508,0.005,0.03,0.0492,0.0667,0.1068,0.0739,0.0583,0.1067,0.0283,0.0417]},{"id":"PM.FUN.04","name":"Integration","L1":"Functions","count":13,"rate":1.0,"mean":0.041329,"sd":0.0178,"gap":0,"first":"2014","last":"2026","row":[0.0583,0.045,0.0167,0.0325,0.0517,0.0183,0.02,0.0455,0.0568,0.08,0.0333,0.0292,0.05]}]},"PMT":{"zh":"Maths (2012–13)","en":"Maths transitional","years":[2012,2013],"topics":[{"id":"PM.PRB.01","name":"Counting: arrangements and selections","L1":"Statistics and Probability","count":0,"rate":0.0,"mean":0.0025,"sd":0.0025,"gap":2,"first":null,"last":null,"row":[0.0,0.005]},{"id":"PM.PRB.02","name":"Concepts of probability","L1":"Statistics and Probability","count":2,"rate":1.0,"mean":0.050833,"sd":0.0025,"gap":0,"first":"2012","last":"2013","row":[0.0483,0.0533]},{"id":"PM.PRB.03","name":"Bernoulli trials, binomial and normal distribution probabilities","L1":"Statistics and Probability","count":2,"rate":1.0,"mean":0.059167,"sd":0.0175,"gap":0,"first":"2012","last":"2013","row":[0.0767,0.0417]},{"id":"PM.STA.01","name":"Statistical reasoning and data collection","L1":"Statistics and Probability","count":2,"rate":1.0,"mean":0.020833,"sd":0.004167,"gap":0,"first":"2012","last":"2013","row":[0.0167,0.025]},{"id":"PM.STA.02","name":"Representing and describing data","L1":"Statistics and Probability","count":2,"rate":1.0,"mean":0.045833,"sd":0.0125,"gap":0,"first":"2012","last":"2013","row":[0.0333,0.0583]},{"id":"PM.STA.03","name":"Statistical inference","L1":"Statistics and Probability","count":2,"rate":1.0,"mean":0.029167,"sd":0.004167,"gap":0,"first":"2012","last":"2013","row":[0.0333,0.025]},{"id":"PM.GEO.01","name":"Synthetic geometry: theorems, proofs and constructions","L1":"Geometry and Trigonometry","count":2,"rate":1.0,"mean":0.1,"sd":0.016667,"gap":0,"first":"2012","last":"2013","row":[0.0833,0.1167]},{"id":"PM.GEO.02","name":"Co-ordinate geometry of the line","L1":"Geometry and Trigonometry","count":2,"rate":1.0,"mean":0.037917,"sd":0.007083,"gap":0,"first":"2012","last":"2013","row":[0.045,0.0308]},{"id":"PM.GEO.03","name":"Co-ordinate geometry of the circle","L1":"Geometry and Trigonometry","count":2,"rate":1.0,"mean":0.085833,"sd":0.0275,"gap":0,"first":"2012","last":"2013","row":[0.1133,0.0583]},{"id":"PM.GEO.04","name":"Trigonometry of triangles, sectors and 3D problems","L1":"Geometry and Trigonometry","count":2,"rate":1.0,"mean":0.107917,"sd":0.000417,"gap":0,"first":"2012","last":"2013","row":[0.1083,0.1075]},{"id":"PM.GEO.05","name":"Trigonometric functions, identities and equations","L1":"Geometry and Trigonometry","count":0,"rate":0.0,"mean":0.005833,"sd":0.004167,"gap":2,"first":null,"last":null,"row":[0.01,0.0017]},{"id":"PM.GEO.06","name":"Transformation geometry and enlargements","L1":"Geometry and Trigonometry","count":0,"rate":0.0,"mean":0.0,"sd":0.0,"gap":2,"first":null,"last":null,"row":[0.0,0.0]},{"id":"PM.NUM.01","name":"Number systems, irrational numbers and proof","L1":"Number","count":1,"rate":0.5,"mean":0.023333,"sd":0.023333,"gap":0,"first":"2012","last":"2012","row":[0.0467,0.0]},{"id":"PM.NUM.02","name":"Sequences, series and limits","L1":"Number","count":2,"rate":1.0,"mean":0.064167,"sd":0.005833,"gap":0,"first":"2012","last":"2013","row":[0.07,0.0583]},{"id":"PM.NUM.03","name":"Indices and logarithms","L1":"Number","count":2,"rate":1.0,"mean":0.033333,"sd":0.016667,"gap":0,"first":"2012","last":"2013","row":[0.0167,0.05]},{"id":"PM.NUM.04","name":"Arithmetic: applied and financial mathematics","L1":"Number","count":1,"rate":0.5,"mean":0.031667,"sd":0.031667,"gap":0,"first":"2013","last":"2013","row":[0.0,0.0633]},{"id":"PM.NUM.05","name":"Length, area and volume","L1":"Number","count":1,"rate":0.5,"mean":0.008333,"sd":0.008333,"gap":0,"first":"2013","last":"2013","row":[0.0,0.0167]},{"id":"PM.ALG.01","name":"Algebraic expressions and polynomials","L1":"Algebra","count":2,"rate":1.0,"mean":0.078333,"sd":0.056667,"gap":0,"first":"2012","last":"2013","row":[0.135,0.0217]},{"id":"PM.ALG.02","name":"Solving equations","L1":"Algebra","count":2,"rate":1.0,"mean":0.063333,"sd":0.016667,"gap":0,"first":"2012","last":"2013","row":[0.0467,0.08]},{"id":"PM.ALG.03","name":"Inequalities","L1":"Algebra","count":1,"rate":0.5,"mean":0.015833,"sd":0.009167,"gap":0,"first":"2012","last":"2012","row":[0.025,0.0067]},{"id":"PM.ALG.04","name":"Complex numbers","L1":"Algebra","count":2,"rate":1.0,"mean":0.045833,"sd":0.004167,"gap":0,"first":"2012","last":"2013","row":[0.05,0.0417]},{"id":"PM.FUN.01","name":"Functions and their graphs","L1":"Functions","count":1,"rate":0.5,"mean":0.016667,"sd":0.016667,"gap":0,"first":"2013","last":"2013","row":[0.0,0.0333]},{"id":"PM.FUN.02","name":"Differentiation","L1":"Functions","count":2,"rate":1.0,"mean":0.090833,"sd":0.0075,"gap":0,"first":"2012","last":"2013","row":[0.0983,0.0833]},{"id":"PM.FUN.03","name":"Applications of differentiation","L1":"Functions","count":2,"rate":1.0,"mean":0.05,"sd":0.025,"gap":0,"first":"2012","last":"2013","row":[0.075,0.025]},{"id":"PM.FUN.04","name":"Integration","L1":"Functions","count":2,"rate":1.0,"mean":0.049167,"sd":0.010833,"gap":0,"first":"2012","last":"2013","row":[0.06,0.0383]}]},"AM2":{"zh":"Applied Maths","en":"Applied Maths","years":[2023,2024,2025,2026],"topics":[{"id":"AM2.MOD.01","name":"The mathematical modelling process","L1":"Strand 1: Mathematical modelling","count":3,"rate":0.75,"mean":0.0375,"sd":0.026517,"gap":1,"first":"2023","last":"2026","row":[0.0625,0.0,0.0625,0.025]},{"id":"AM2.NET.01","name":"Networks, graph terminology and representation","L1":"Strand 2: Mathematical modelling with networks and graphs","count":1,"rate":0.25,"mean":0.0125,"sd":0.021651,"gap":0,"first":"2023","last":"2023","row":[0.05,0.0,0.0,0.0]},{"id":"AM2.NET.02","name":"Matrices, matrix algebra and adjacency matrices","L1":"Strand 2: Mathematical modelling with networks and graphs","count":2,"rate":0.5,"mean":0.01875,"sd":0.020729,"gap":0,"first":"2024","last":"2025","row":[0.0,0.025,0.05,0.0]},{"id":"AM2.NET.03","name":"Minimum spanning trees (Kruskal, Prim)","L1":"Strand 2: Mathematical modelling with networks and graphs","count":4,"rate":1.0,"mean":0.065625,"sd":0.022317,"gap":0,"first":"2023","last":"2026","row":[0.0625,0.1,0.0625,0.0375]},{"id":"AM2.NET.04","name":"Shortest paths: Dijkstra's algorithm","L1":"Strand 2: Mathematical modelling with networks and graphs","count":3,"rate":0.75,"mean":0.03125,"sd":0.01875,"gap":1,"first":"2023","last":"2026","row":[0.05,0.0,0.0375,0.0375]},{"id":"AM2.NET.05","name":"Dynamic programming and Bellman's principle of optimality","L1":"Strand 2: Mathematical modelling with networks and graphs","count":2,"rate":0.5,"mean":0.046875,"sd":0.051822,"gap":0,"first":"2024","last":"2025","row":[0.0,0.125,0.0625,0.0]},{"id":"AM2.NET.06","name":"Evaluating algorithms: greedy versus dynamic programming","L1":"Strand 2: Mathematical modelling with networks and graphs","count":0,"rate":0.0,"mean":0.0,"sd":0.0,"gap":4,"first":null,"last":null,"row":[0.0,0.0,0.0,0.0]},{"id":"AM2.NET.07","name":"Project scheduling and critical path analysis","L1":"Strand 2: Mathematical modelling with networks and graphs","count":3,"rate":0.75,"mean":0.09375,"sd":0.064651,"gap":1,"first":"2023","last":"2026","row":[0.125,0.075,0.0,0.175]},{"id":"AM2.KIN.01","name":"Kinematics in one dimension with constant acceleration","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.0775,"sd":0.020214,"gap":0,"first":"2023","last":"2026","row":[0.0625,0.075,0.0612,0.1113]},{"id":"AM2.KIN.02","name":"Kinematics with calculus: variable acceleration","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.065625,"sd":0.016238,"gap":0,"first":"2023","last":"2026","row":[0.075,0.0875,0.05,0.05]},{"id":"AM2.KIN.03","name":"Vectors and particle motion in two dimensions","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":3,"rate":0.75,"mean":0.025625,"sd":0.015848,"gap":1,"first":"2023","last":"2026","row":[0.0375,0.0,0.025,0.04]},{"id":"AM2.KIN.04","name":"Projectile motion","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.06875,"sd":0.033657,"gap":0,"first":"2023","last":"2026","row":[0.1125,0.05,0.0875,0.025]},{"id":"AM2.DYN.01","name":"Forces, Newton's laws and motion on planes","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":3,"rate":0.75,"mean":0.060938,"sd":0.040315,"gap":0,"first":"2024","last":"2026","row":[0.0112,0.1,0.1013,0.0312]},{"id":"AM2.DYN.02","name":"Connected masses","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.063125,"sd":0.008409,"gap":0,"first":"2023","last":"2026","row":[0.0512,0.075,0.0625,0.0638]},{"id":"AM2.DYN.03","name":"Momentum, impulse and collisions","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.104063,"sd":0.021349,"gap":0,"first":"2023","last":"2026","row":[0.075,0.1,0.1062,0.135]},{"id":"AM2.DYN.04","name":"Resistive forces and drag","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":1,"rate":0.25,"mean":0.01125,"sd":0.013288,"gap":0,"first":"2023","last":"2023","row":[0.0325,0.0125,0.0,0.0]},{"id":"AM2.DYN.05","name":"Work, energy and conservation of energy","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":2,"rate":0.5,"mean":0.029687,"sd":0.031054,"gap":0,"first":"2025","last":"2026","row":[0.0,0.0125,0.0813,0.025]},{"id":"AM2.DYN.06","name":"Circular motion of a particle","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":4,"rate":1.0,"mean":0.095312,"sd":0.032887,"gap":0,"first":"2023","last":"2026","row":[0.15,0.0625,0.0875,0.0813]},{"id":"AM2.DYN.07","name":"Dimensional analysis","L1":"Strand 3: Mathematically modelling the physical world; kinematics and dynamics","count":0,"rate":0.0,"mean":0.0,"sd":0.0,"gap":4,"first":null,"last":null,"row":[0.0,0.0,0.0,0.0]},{"id":"AM2.DIF.01","name":"Recurrence relations and modelling incremental change","L1":"Strand 4: Mathematically modelling a changing world","count":3,"rate":0.75,"mean":0.029687,"sd":0.018758,"gap":1,"first":"2023","last":"2026","row":[0.0612,0.025,0.0125,0.02]},{"id":"AM2.DIF.02","name":"Solving difference equations","L1":"Strand 4: Mathematically modelling a changing world","count":4,"rate":1.0,"mean":0.139063,"sd":0.014399,"gap":0,"first":"2023","last":"2026","row":[0.1388,0.1625,0.125,0.13]},{"id":"AM2.DEQ.01","name":"Formulating differential equations for continuous change","L1":"Strand 4: Mathematically modelling a changing world","count":3,"rate":0.75,"mean":0.01875,"sd":0.007181,"gap":1,"first":"2023","last":"2026","row":[0.0175,0.0075,0.025,0.025]},{"id":"AM2.DEQ.02","name":"Solving differential equations","L1":"Strand 4: Mathematically modelling a changing world","count":4,"rate":1.0,"mean":0.145,"sd":0.060441,"gap":0,"first":"2023","last":"2026","row":[0.075,0.155,0.1125,0.2375]}]}},"analysis":{"curves":{"PHY":{"B0":{"0.1":{"mean":0.1503,"ci_lo":0.1204,"ci_hi":0.1801,"n_sittings":17},"0.2":{"mean":0.361,"ci_lo":0.3098,"ci_hi":0.4122,"n_sittings":17},"0.3":{"mean":0.5451,"ci_lo":0.5002,"ci_hi":0.59,"n_sittings":17},"0.4":{"mean":0.6662,"ci_lo":0.6095,"ci_hi":0.7228,"n_sittings":17},"0.5":{"mean":0.7746,"ci_lo":0.7067,"ci_hi":0.8426,"n_sittings":17},"0.6":{"mean":0.854,"ci_lo":0.8136,"ci_hi":0.8944,"n_sittings":17},"0.7":{"mean":0.9133,"ci_lo":0.8768,"ci_hi":0.9498,"n_sittings":17},"0.8":{"mean":0.9644,"ci_lo":0.9307,"ci_hi":0.9982,"n_sittings":17},"0.9":{"mean":0.9913,"ci_lo":0.9719,"ci_hi":1.0107,"n_sittings":17}},"B1":{"0.1":{"mean":0.2346,"ci_lo":0.1889,"ci_hi":0.2803,"n_sittings":17},"0.2":{"mean":0.5014,"ci_lo":0.4334,"ci_hi":0.5695,"n_sittings":17},"0.3":{"mean":0.668,"ci_lo":0.6065,"ci_hi":0.7295,"n_sittings":17},"0.4":{"mean":0.7723,"ci_lo":0.7247,"ci_hi":0.8199,"n_sittings":17},"0.5":{"mean":0.8632,"ci_lo":0.8253,"ci_hi":0.901,"n_sittings":17},"0.6":{"mean":0.9262,"ci_lo":0.8928,"ci_hi":0.9597,"n_sittings":17},"0.7":{"mean":0.971,"ci_lo":0.9503,"ci_hi":0.9916,"n_sittings":17},"0.8":{"mean":0.9899,"ci_lo":0.9786,"ci_hi":1.0013,"n_sittings":17},"0.9":{"mean":0.9985,"ci_lo":0.9951,"ci_hi":1.0019,"n_sittings":17}},"M2":{"0.1":{"mean":0.2389,"ci_lo":0.1973,"ci_hi":0.2805,"n_sittings":17},"0.2":{"mean":0.5069,"ci_lo":0.4401,"ci_hi":0.5736,"n_sittings":17},"0.3":{"mean":0.6711,"ci_lo":0.6054,"ci_hi":0.7368,"n_sittings":17},"0.4":{"mean":0.7775,"ci_lo":0.7243,"ci_hi":0.8307,"n_sittings":17},"0.5":{"mean":0.872,"ci_lo":0.8286,"ci_hi":0.9153,"n_sittings":17},"0.6":{"mean":0.9335,"ci_lo":0.9025,"ci_hi":0.9644,"n_sittings":17},"0.7":{"mean":0.9759,"ci_lo":0.9592,"ci_hi":0.9927,"n_sittings":17},"0.8":{"mean":0.9883,"ci_lo":0.975,"ci_hi":1.0015,"n_sittings":17},"0.9":{"mean":0.9941,"ci_lo":0.9809,"ci_hi":1.0073,"n_sittings":17}},"M3":{"0.1":{"mean":0.2494,"ci_lo":0.2027,"ci_hi":0.2961,"n_sittings":17},"0.2":{"mean":0.5048,"ci_lo":0.4385,"ci_hi":0.5711,"n_sittings":17},"0.3":{"mean":0.6782,"ci_lo":0.6112,"ci_hi":0.7452,"n_sittings":17},"0.4":{"mean":0.7882,"ci_lo":0.7448,"ci_hi":0.8316,"n_sittings":17},"0.5":{"mean":0.8772,"ci_lo":0.8427,"ci_hi":0.9117,"n_sittings":17},"0.6":{"mean":0.9277,"ci_lo":0.9016,"ci_hi":0.9538,"n_sittings":17},"0.7":{"mean":0.9728,"ci_lo":0.9504,"ci_hi":0.9952,"n_sittings":17},"0.8":{"mean":0.9886,"ci_lo":0.9755,"ci_hi":1.0017,"n_sittings":17},"0.9":{"mean":0.9962,"ci_lo":0.9878,"ci_hi":1.0047,"n_sittings":17}},"NESTED_TIMING":{"0.1":{"mean":0.2445,"ci_lo":0.2042,"ci_hi":0.2848,"n_sittings":17},"0.2":{"mean":0.5036,"ci_lo":0.4428,"ci_hi":0.5644,"n_sittings":17},"0.3":{"mean":0.666,"ci_lo":0.6079,"ci_hi":0.7242,"n_sittings":17},"0.4":{"mean":0.7879,"ci_lo":0.7381,"ci_hi":0.8377,"n_sittings":17},"0.5":{"mean":0.8769,"ci_lo":0.8343,"ci_hi":0.9195,"n_sittings":17},"0.6":{"mean":0.9318,"ci_lo":0.8995,"ci_hi":0.9641,"n_sittings":17},"0.7":{"mean":0.9731,"ci_lo":0.9541,"ci_hi":0.9922,"n_sittings":17},"0.8":{"mean":0.9911,"ci_lo":0.9784,"ci_hi":1.0038,"n_sittings":17},"0.9":{"mean":1.0,"ci_lo":1.0,"ci_hi":1.0,"n_sittings":17}},"RANDOM":{"0.1":{"mean":0.1525,"ci_lo":0.1366,"ci_hi":0.1685,"n_sittings":17},"0.2":{"mean":0.3467,"ci_lo":0.3169,"ci_hi":0.3764,"n_sittings":17},"0.3":{"mean":0.5071,"ci_lo":0.4722,"ci_hi":0.5419,"n_sittings":17},"0.4":{"mean":0.6449,"ci_lo":0.609,"ci_hi":0.6809,"n_sittings":17},"0.5":{"mean":0.7637,"ci_lo":0.7299,"ci_hi":0.7975,"n_sittings":17},"0.6":{"mean":0.8359,"ci_lo":0.8065,"ci_hi":0.8653,"n_sittings":17},"0.7":{"mean":0.9212,"ci_lo":0.9004,"ci_hi":0.9421,"n_sittings":17},"0.8":{"mean":0.9726,"ci_lo":0.9625,"ci_hi":0.9827,"n_sittings":17},"0.9":{"mean":0.9954,"ci_lo":0.9932,"ci_hi":0.9977,"n_sittings":17}},"RANDOM_ALL_COMPULSORY":{"0.1":{"mean":0.0777,"ci_lo":0.0772,"ci_hi":0.0782,"n_sittings":17},"0.2":{"mean":0.1843,"ci_lo":0.1834,"ci_hi":0.1853,"n_sittings":17},"0.3":{"mean":0.2887,"ci_lo":0.2869,"ci_hi":0.2904,"n_sittings":17},"0.4":{"mean":0.394,"ci_lo":0.3919,"ci_hi":0.396,"n_sittings":17},"0.5":{"mean":0.4998,"ci_lo":0.4972,"ci_hi":0.5024,"n_sittings":17},"0.6":{"mean":0.5765,"ci_lo":0.5735,"ci_hi":0.5796,"n_sittings":17},"0.7":{"mean":0.6865,"ci_lo":0.6831,"ci_hi":0.6898,"n_sittings":17},"0.8":{"mean":0.7884,"ci_lo":0.7843,"ci_hi":0.7925,"n_sittings":17},"0.9":{"mean":0.8903,"ci_lo":0.8859,"ci_hi":0.8947,"n_sittings":17}},"S1":{"0.1":{"mean":0.2346,"ci_lo":0.1889,"ci_hi":0.2803,"n_sittings":17},"0.2":{"mean":0.4971,"ci_lo":0.4376,"ci_hi":0.5566,"n_sittings":17},"0.3":{"mean":0.6654,"ci_lo":0.61,"ci_hi":0.7208,"n_sittings":17},"0.4":{"mean":0.7768,"ci_lo":0.7301,"ci_hi":0.8236,"n_sittings":17},"0.5":{"mean":0.8772,"ci_lo":0.8354,"ci_hi":0.919,"n_sittings":17},"0.6":{"mean":0.9278,"ci_lo":0.8987,"ci_hi":0.9569,"n_sittings":17},"0.7":{"mean":0.9679,"ci_lo":0.949,"ci_hi":0.9868,"n_sittings":17},"0.8":{"mean":0.9906,"ci_lo":0.978,"ci_hi":1.0033,"n_sittings":17},"0.9":{"mean":1.0,"ci_lo":1.0,"ci_hi":1.0,"n_sittings":17}},"S2":{"0.1":{"mean":0.1496,"ci_lo":0.1231,"ci_hi":0.1762,"n_sittings":17},"0.2":{"mean":0.3084,"ci_lo":0.2656,"ci_hi":0.3511,"n_sittings":17},"0.3":{"mean":0.5351,"ci_lo":0.4606,"ci_hi":0.6097,"n_sittings":17},"0.4":{"mean":0.7335,"ci_lo":0.6767,"ci_hi":0.7902,"n_sittings":17},"0.5":{"mean":0.8499,"ci_lo":0.8116,"ci_hi":0.8881,"n_sittings":17},"0.6":{"mean":0.9165,"ci_lo":0.8867,"ci_hi":0.9462,"n_sittings":17},"0.7":{"mean":0.9746,"ci_lo":0.9586,"ci_hi":0.9907,"n_sittings":17},"0.8":{"mean":0.9971,"ci_lo":0.9925,"ci_hi":1.0017,"n_sittings":17},"0.9":{"mean":1.0,"ci_lo":1.0,"ci_hi":1.0,"n_sittings":17}}},"PM":{"B0":{"0.1":{"mean":0.1128,"ci_lo":0.0544,"ci_hi":0.1712,"n_sittings":8},"0.2":{"mean":0.2262,"ci_lo":0.14,"ci_hi":0.3124,"n_sittings":8},"0.3":{"mean":0.3173,"ci_lo":0.2271,"ci_hi":0.4075,"n_sittings":8},"0.4":{"mean":0.4487,"ci_lo":0.3319,"ci_hi":0.5655,"n_sittings":8},"0.5":{"mean":0.5349,"ci_lo":0.4023,"ci_hi":0.6675,"n_sittings":8},"0.6":{"mean":0.6633,"ci_lo":0.5345,"ci_hi":0.7922,"n_sittings":8},"0.7":{"mean":0.7543,"ci_lo":0.6442,"ci_hi":0.8644,"n_sittings":8},"0.8":{"mean":0.8557,"ci_lo":0.7466,"ci_hi":0.9648,"n_sittings":8},"0.9":{"mean":0.9332,"ci_lo":0.8489,"ci_hi":1.0175,"n_sittings":8}},"B1":{"0.1":{"mean":0.1331,"ci_lo":0.0923,"ci_hi":0.1739,"n_sittings":8},"0.2":{"mean":0.3227,"ci_lo":0.2371,"ci_hi":0.4082,"n_sittings":8},"0.3":{"mean":0.4404,"ci_lo":0.3353,"ci_hi":0.5454,"n_sittings":8},"0.4":{"mean":0.6092,"ci_lo":0.4887,"ci_hi":0.7298,"n_sittings":8},"0.5":{"mean":0.7101,"ci_lo":0.5813,"ci_hi":0.839,"n_sittings":8},"0.6":{"mean":0.8332,"ci_lo":0.7482,"ci_hi":0.9181,"n_sittings":8},"0.7":{"mean":0.9085,"ci_lo":0.8481,"ci_hi":0.9689,"n_sittings":8},"0.8":{"mean":0.9772,"ci_lo":0.9512,"ci_hi":1.0031,"n_sittings":8},"0.9":{"mean":0.9977,"ci_lo":0.9936,"ci_hi":1.0018,"n_sittings":8}},"M2":{"0.1":{"mean":0.1261,"ci_lo":0.0787,"ci_hi":0.1734,"n_sittings":8},"0.2":{"mean":0.3142,"ci_lo":0.2254,"ci_hi":0.403,"n_sittings":8},"0.3":{"mean":0.43,"ci_lo":0.3227,"ci_hi":0.5372,"n_sittings":8},"0.4":{"mean":0.5938,"ci_lo":0.4739,"ci_hi":0.7137,"n_sittings":8},"0.5":{"mean":0.6945,"ci_lo":0.5732,"ci_hi":0.8158,"n_sittings":8},"0.6":{"mean":0.8153,"ci_lo":0.7167,"ci_hi":0.9139,"n_sittings":8},"0.7":{"mean":0.8906,"ci_lo":0.8194,"ci_hi":0.9619,"n_sittings":8},"0.8":{"mean":0.9733,"ci_lo":0.9366,"ci_hi":1.01,"n_sittings":8},"0.9":{"mean":0.9977,"ci_lo":0.9936,"ci_hi":1.0018,"n_sittings":8}},"M3":{"0.1":{"mean":0.1226,"ci_lo":0.0944,"ci_hi":0.1509,"n_sittings":8},"0.2":{"mean":0.3138,"ci_lo":0.2405,"ci_hi":0.387,"n_sittings":8},"0.3":{"mean":0.4317,"ci_lo":0.3374,"ci_hi":0.526,"n_sittings":8},"0.4":{"mean":0.5968,"ci_lo":0.4876,"ci_hi":0.7061,"n_sittings":8},"0.5":{"mean":0.6993,"ci_lo":0.587,"ci_hi":0.8116,"n_sittings":8},"0.6":{"mean":0.8305,"ci_lo":0.7457,"ci_hi":0.9152,"n_sittings":8},"0.7":{"mean":0.9085,"ci_lo":0.8441,"ci_hi":0.973,"n_sittings":8},"0.8":{"mean":0.9736,"ci_lo":0.943,"ci_hi":1.0043,"n_sittings":8},"0.9":{"mean":0.9977,"ci_lo":0.9936,"ci_hi":1.0018,"n_sittings":8}},"NESTED_TIMING":{"0.1":{"mean":0.1331,"ci_lo":0.0923,"ci_hi":0.1739,"n_sittings":8},"0.2":{"mean":0.3227,"ci_lo":0.2371,"ci_hi":0.4082,"n_sittings":8},"0.3":{"mean":0.4404,"ci_lo":0.3353,"ci_hi":0.5454,"n_sittings":8},"0.4":{"mean":0.6092,"ci_lo":0.4887,"ci_hi":0.7298,"n_sittings":8},"0.5":{"mean":0.7076,"ci_lo":0.5772,"ci_hi":0.8379,"n_sittings":8},"0.6":{"mean":0.8352,"ci_lo":0.7354,"ci_hi":0.9351,"n_sittings":8},"0.7":{"mean":0.9083,"ci_lo":0.8407,"ci_hi":0.9758,"n_sittings":8},"0.8":{"mean":0.9769,"ci_lo":0.9472,"ci_hi":1.0067,"n_sittings":8},"0.9":{"mean":0.9977,"ci_lo":0.9936,"ci_hi":1.0018,"n_sittings":8}},"RANDOM":{"0.1":{"mean":0.1011,"ci_lo":0.0771,"ci_hi":0.1251,"n_sittings":8},"0.2":{"mean":0.2528,"ci_lo":0.2006,"ci_hi":0.3049,"n_sittings":8},"0.3":{"mean":0.3503,"ci_lo":0.2837,"ci_hi":0.4169,"n_sittings":8},"0.4":{"mean":0.4831,"ci_lo":0.4013,"ci_hi":0.5648,"n_sittings":8},"0.5":{"mean":0.5752,"ci_lo":0.4895,"ci_hi":0.661,"n_sittings":8},"0.6":{"mean":0.6973,"ci_lo":0.6116,"ci_hi":0.7831,"n_sittings":8},"0.7":{"mean":0.7749,"ci_lo":0.6947,"ci_hi":0.8551,"n_sittings":8},"0.8":{"mean":0.8778,"ci_lo":0.8143,"ci_hi":0.9414,"n_sittings":8},"0.9":{"mean":0.9379,"ci_lo":0.8922,"ci_hi":0.9835,"n_sittings":8}},"RANDOM_ALL_COMPULSORY":{"0.1":{"mean":0.0779,"ci_lo":0.0774,"ci_hi":0.0785,"n_sittings":8},"0.2":{"mean":0.1995,"ci_lo":0.1978,"ci_hi":0.2013,"n_sittings":8},"0.3":{"mean":0.2807,"ci_lo":0.2778,"ci_hi":0.2835,"n_sittings":8},"0.4":{"mean":0.3963,"ci_lo":0.3948,"ci_hi":0.3978,"n_sittings":8},"0.5":{"mean":0.481,"ci_lo":0.4788,"ci_hi":0.4831,"n_sittings":8},"0.6":{"mean":0.5995,"ci_lo":0.5977,"ci_hi":0.6013,"n_sittings":8},"0.7":{"mean":0.6794,"ci_lo":0.6769,"ci_hi":0.682,"n_sittings":8},"0.8":{"mean":0.7972,"ci_lo":0.7941,"ci_hi":0.8003,"n_sittings":8},"0.9":{"mean":0.8776,"ci_lo":0.8738,"ci_hi":0.8813,"n_sittings":8}},"S1":{"0.1":{"mean":0.1331,"ci_lo":0.0923,"ci_hi":0.1739,"n_sittings":8},"0.2":{"mean":0.3227,"ci_lo":0.2371,"ci_hi":0.4082,"n_sittings":8},"0.3":{"mean":0.4404,"ci_lo":0.3353,"ci_hi":0.5454,"n_sittings":8},"0.4":{"mean":0.6092,"ci_lo":0.4887,"ci_hi":0.7298,"n_sittings":8},"0.5":{"mean":0.7076,"ci_lo":0.5772,"ci_hi":0.8379,"n_sittings":8},"0.6":{"mean":0.8352,"ci_lo":0.7353,"ci_hi":0.9351,"n_sittings":8},"0.7":{"mean":0.9075,"ci_lo":0.8389,"ci_hi":0.9761,"n_sittings":8},"0.8":{"mean":0.9753,"ci_lo":0.9428,"ci_hi":1.0078,"n_sittings":8},"0.9":{"mean":0.9977,"ci_lo":0.9936,"ci_hi":1.0018,"n_sittings":8}},"S2":{"0.1":{"mean":0.0863,"ci_lo":0.0693,"ci_hi":0.1033,"n_sittings":8},"0.2":{"mean":0.1567,"ci_lo":0.0915,"ci_hi":0.2218,"n_sittings":8},"0.3":{"mean":0.2621,"ci_lo":0.1734,"ci_hi":0.3509,"n_sittings":8},"0.4":{"mean":0.4453,"ci_lo":0.3438,"ci_hi":0.5467,"n_sittings":8},"0.5":{"mean":0.5584,"ci_lo":0.4475,"ci_hi":0.6692,"n_sittings":8},"0.6":{"mean":0.7107,"ci_lo":0.5987,"ci_hi":0.8227,"n_sittings":8},"0.7":{"mean":0.7986,"ci_lo":0.7032,"ci_hi":0.894,"n_sittings":8},"0.8":{"mean":0.9197,"ci_lo":0.8539,"ci_hi":0.9855,"n_sittings":8},"0.9":{"mean":0.9702,"ci_lo":0.938,"ci_hi":1.0025,"n_sittings":8}}}},"decomposition":{"PHY":{"SQ1_question_choice":{"mean":0.19488932307016277,"ci_lo":0.17167204985222756,"ci_hi":0.21810659628809798,"practically_negligible":false},"SQ2_frequency_gain":{"mean":0.08722317131062951,"ci_lo":0.06363954533100062,"ci_hi":0.1108067972902584,"practically_negligible":false},"SQ3_timing_gain":{"mean":0.0055398567251462305,"ci_lo":-0.0019320841484149146,"ci_hi":0.013011797598707324,"practically_negligible":true}},"PM":{"SQ1_question_choice":{"mean":0.07347463483519406,"ci_lo":0.008664078274703918,"ci_hi":0.13828519139568415,"practically_negligible":false},"SQ2_frequency_gain":{"mean":0.09796207281144786,"ci_lo":0.07274814301504406,"ci_hi":0.12317600260785158,"practically_negligible":false},"SQ3_timing_gain":{"mean":-0.00011145517676780514,"ci_lo":-0.003528479731061569,"ci_hi":0.0033055693775262364,"practically_negligible":true}}},"tests":{"H1_PHY":{"statistic":0.0870161373409013,"p_raw":0.0004997501249375312,"ci":[0.06307576892391527,0.11095650575788733],"p_holm":0.0014992503748125937,"significant_holm_0.05":true},"H2_PHY":{"statistic":0.00671716288269697,"p_raw":0.031984007996002,"best_method":"M3","ci":[-0.0015563363483514052,0.014990662113745227],"p_holm":0.063968015992004,"significant_holm_0.05":false},"H3_pooled":{"statistic":0.19672209301738183,"p_raw":0.10744627686156921,"p_holm":0.10744627686156921,"significant_holm_0.05":false}},"sensitivity":{"PHY":{"strict_credit":{"SQ1_question_choice":0.20182793712135733,"SQ2_frequency_gain":0.08963137684898526,"SQ3_timing_gain":0.003304398864808933},"threshold_0p75":{"SQ1_question_choice":0.1951742423786525,"SQ2_frequency_gain":0.08365524810801517,"SQ3_timing_gain":0.0010226719986239363},"threshold_3p0":{"SQ1_question_choice":0.1951742423786525,"SQ2_frequency_gain":0.10820763716890258,"SQ3_timing_gain":0.0012833720330237552},"exclude_2020_2022":{"SQ1_question_choice":0.18583115119924243,"SQ2_frequency_gain":0.0886878571428571,"SQ3_timing_gain":0.007541448412698326},"drop_needs_human":{"SQ1_question_choice":0.19411523708662282,"SQ2_frequency_gain":0.08688068412452687,"SQ3_timing_gain":0.005665775283797858},"collapse_L1":{"SQ1_question_choice":0.21655711858333104,"SQ2_frequency_gain":0.05619463966288263,"SQ3_timing_gain":0.0}},"PM":{"strict_credit":{"SQ1_question_choice":0.07270021209906069,"SQ2_frequency_gain":0.1034552293771045,"SQ3_timing_gain":0.0008553240740740709},"threshold_0p75":{"SQ1_question_choice":0.07309496001683491,"SQ2_frequency_gain":0.09514700126262632,"SQ3_timing_gain":2.8382786195213505e-05},"threshold_3p0":{"SQ1_question_choice":0.07309496001683491,"SQ2_frequency_gain":0.12304591224747474,"SQ3_timing_gain":-0.004492176978114437},"exclude_2020_2022":{"SQ1_question_choice":0.06005136452241716,"SQ2_frequency_gain":0.08944435185185184,"SQ3_timing_gain":-0.0005274074074073098},"drop_needs_human":{"SQ1_question_choice":0.07269279977178256,"SQ2_frequency_gain":0.09875511363636358,"SQ3_timing_gain":-0.0003211016414140788},"collapse_L1":{"SQ1_question_choice":0.07123807925748715,"SQ2_frequency_gain":0.0009377683080806776,"SQ3_timing_gain":0.0}}},"meta":{"PHY":{"role":"formal","sittings":[2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"test_sittings":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"topics":38,"rho80":{"B0":0.532,"B1":0.43,"M2":0.424,"M3":0.413,"NESTED_TIMING":0.414,"RANDOM":0.55,"RANDOM_ALL_COMPULSORY":0.811,"S1":0.423,"S2":0.457},"AS_0.5":{"B0":0.7746137770897833,"B1":0.8631846904024768,"M2":0.8719612368421054,"M3":0.8771756400928793,"NESTED_TIMING":0.8769293653250775,"RANDOM":0.7637019148606811,"RANDOM_ALL_COMPULSORY":0.4997949816382265,"S1":0.8771756965944272,"S2":0.849852390866873}},"PM":{"role":"exploratory","sittings":[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"test_sittings":[2019,2020,2021,2022,2023,2024,2025,2026],"topics":25,"rho80":{"B0":0.745,"B1":0.573,"M2":0.587,"M3":0.577,"NESTED_TIMING":0.572,"RANDOM":0.724,"RANDOM_ALL_COMPULSORY":0.803,"S1":0.572,"S2":0.701},"AS_0.5":{"B0":0.5348579545454545,"B1":0.7101495928030302,"M2":0.6945363731060606,"M3":0.6992847348484849,"NESTED_TIMING":0.7075524053030303,"RANDOM":0.5752161363636363,"RANDOM_ALL_COMPULSORY":0.48095293859649124,"S1":0.7075524053030303,"S2":0.558362215909091}}}},"qa":{"PHY":{"A1":{"n":1812,"ok":1811,"rate":0.9994481236203091,"pass":true},"A2":{"n":181,"mean_overlap":0.9790055248618784,"main_topic_agreement":0.9779005524861878,"pass":true},"A5":{"topics_never_used":[],"topics_over_15pc":{},"unclear_share_of_marks":0.0012}},"PM":{"A1":{"n":1332,"ok":1330,"rate":0.9984984984984985,"pass":true},"A2":{"n":133,"mean_overlap":0.9097744360902256,"main_topic_agreement":0.9097744360902256,"pass":true},"A5":{"topics_never_used":[],"topics_over_15pc":{},"unclear_share_of_marks":0.0025}},"PMT":{"A1":{"n":275,"ok":275,"rate":1.0,"pass":true},"A2":{"n":30,"mean_overlap":0.9600000000000001,"main_topic_agreement":0.9666666666666667,"pass":true},"A5":{"topics_never_used":["PM.GEO.06"],"topics_over_15pc":{},"unclear_share_of_marks":0.0135}},"AM2":{"A1":{"n":130,"ok":130,"rate":1.0,"pass":true},"A2":{"n":30,"mean_overlap":0.99,"main_topic_agreement":1.0,"pass":true},"A5":{"topics_never_used":["AM2.NET.06"],"topics_over_15pc":{},"unclear_share_of_marks":0.006}}},"build":{"papers":74,"leaves":3549,"labelled_ok":3546,"documents":131,"pages":3878,"cny":20.05}}</script>
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("lcdata").textContent);
+const NS = "http://www.w3.org/2000/svg";
+const css = k => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+const el = (n, a) => { const e = document.createElementNS(NS, n);
+  for (const k in (a||{})) e.setAttribute(k, a[k]); return e; };
+const txt = (x, y, s, a) => { const e = el("text", Object.assign({x, y, fill: css("--muted"),
+  "font-size": 12, "font-family": "IBM Plex Mono, ui-monospace, monospace"}, a||{}));
+  e.textContent = s; return e; };
+const pct = v => (v * 100).toFixed(0) + "%";
+
+/* ---------- theme ---------- */
+const root = document.documentElement, tbtn = document.getElementById("theme");
+let stored = null; try { stored = localStorage.getItem("lc-theme"); } catch (e) {}
+if (stored) root.setAttribute("data-theme", stored);
+tbtn.addEventListener("click", () => {
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const now = root.getAttribute("data-theme") || (dark ? "dark" : "light");
+  const next = now === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  try { localStorage.setItem("lc-theme", next); } catch (e) {}
+  drawAll();
+});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById("tip");
+let tipOn = false;
+function showTip(html, ev){
+  tip.innerHTML = html; tip.classList.add("on"); tipOn = true;
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+function hideTip(){ if (tipOn) { tip.classList.remove("on"); tipOn = false; } }
+addEventListener("scroll", hideTip, {passive:true});
+
+/* ---------- tabs ---------- */
+function tabs(box, items, current, onPick){
+  box.textContent = "";
+  items.forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "tab"; b.textContent = label;
+    b.setAttribute("aria-pressed", String(key === current()));
+    b.addEventListener("click", () => { onPick(key);
+      [...box.children].forEach((c, i) => c.setAttribute("aria-pressed", String(items[i][0] === current()))); });
+    box.appendChild(b);
+  });
+}
+
+/* ---------- 1. AS curves ---------- */
+const CURVE_SERIES = [["RANDOM", "Topics picked at random", "--s1", false],
+                      ["B1", "Most frequent topics", "--s2", false],
+                      ["NESTED_TIMING", "Frequency plus timing", "--s3", true]];
+let curveDs = "PHY";
+function drawCurves(){
+  const svg = document.getElementById("curve"); svg.textContent = "";
+  const c = D.analysis.curves[curveDs], meta = D.analysis.meta[curveDs];
+  const rhos = Object.keys(c.B1).map(Number).sort((a, b) => a - b);
+  const W = 900, H = 430, L = 54, R = 28, T = 18, B = 54;
+  const x = r => L + (r - rhos[0]) / (rhos[rhos.length - 1] - rhos[0]) * (W - L - R);
+  const y = v => T + (1 - v) * (H - T - B);
+  const rule = css("--rule-soft"), muted = css("--muted");
+  [0, .2, .4, .6, .8, 1].forEach(v => {
+    svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: rule, "stroke-width": 1}));
+    svg.appendChild(txt(L - 10, y(v) + 4, v.toFixed(1), {"text-anchor": "end"}));
+  });
+  svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(.8), y2: y(.8), stroke: muted,
+    "stroke-width": 1, "stroke-dasharray": "5 4"}));
+  const note = txt(L + 6, y(.8) - 8, "80% of the paper"); note.setAttribute("font-size", 11.5); svg.appendChild(note);
+  rhos.forEach(r => svg.appendChild(txt(x(r), H - B + 22, r.toFixed(1), {"text-anchor": "middle"})));
+  const xl = txt((L + W - R) / 2, H - B + 46, "Share of the course revised (\u03c1)", {"text-anchor": "middle"});
+  xl.setAttribute("font-family", "inherit"); xl.setAttribute("font-size", 12.5); svg.appendChild(xl);
+  const yl = txt(0, 0, "Share of the paper attemptable", {"text-anchor": "middle"});
+  yl.setAttribute("transform", "translate(16," + (T + (H - T - B) / 2) + ") rotate(-90)");
+  yl.setAttribute("font-family", "inherit"); yl.setAttribute("font-size", 12.5); svg.appendChild(yl);
+
+  CURVE_SERIES.forEach(([key, label, tok, dashed]) => {
+    const s = c[key]; if (!s) return;
+    const col = css(tok);
+    const band = rhos.map(r => [x(r), y(s[String(r)].ci_hi)])
+      .concat(rhos.slice().reverse().map(r => [x(r), y(s[String(r)].ci_lo)]));
+    svg.appendChild(el("path", {d: "M" + band.map(p => p.join(",")).join("L") + "Z",
+      fill: col, "fill-opacity": .13, stroke: "none"}));
+    const line = rhos.map(r => [x(r), y(s[String(r)].mean)]);
+    const path = el("path", {d: "M" + line.map(p => p.join(",")).join("L"), fill: "none",
+      stroke: col, "stroke-width": 2.4, "stroke-linejoin": "round", "stroke-linecap": "round"});
+    if (dashed) path.setAttribute("stroke-dasharray", "7 3.5");
+    svg.appendChild(path);
+    rhos.forEach(r => {
+      const cell = s[String(r)];
+      const dot = el("circle", {cx: x(r), cy: y(cell.mean), r: 4.6, fill: col,
+        stroke: css("--panel"), "stroke-width": 1.8});
+      const hit = el("circle", {cx: x(r), cy: y(cell.mean), r: 13, fill: "transparent"});
+      hit.addEventListener("pointerenter", ev => showTip(
+        "<b>" + label + "</b><br>Revising " + pct(r) + " of topics<br><span class='mono'>" +
+        pct(cell.mean) + "</span> of the paper attemptable<br><span class='mono'>95% interval " +
+        pct(cell.ci_lo) + "–" + pct(cell.ci_hi) + "</span>", ev));
+      hit.addEventListener("pointerleave", hideTip);
+      svg.appendChild(dot); svg.appendChild(hit);
+    });
+  });
+  const lg = document.getElementById("curve-legend"); lg.textContent = "";
+  CURVE_SERIES.forEach(([key, label, tok, dashed]) => {
+    if (!c[key]) return;
+    const s = document.createElement("span");
+    s.style.color = css(tok);
+    s.innerHTML = "<i class='" + (dashed ? "dash" : "") + "' style='background:" +
+      (dashed ? "" : css(tok)) + "'></i>";
+    const n = document.createElement("span"); n.style.color = "var(--ink-2)"; n.textContent = label;
+    s.appendChild(n); lg.appendChild(s);
+  });
+  const foot = document.createElement("span");
+  foot.style.color = "var(--muted)"; foot.style.fontSize = "12px";
+  foot.textContent = "Scored on " + meta.test_sittings[0] + "–" + meta.test_sittings[meta.test_sittings.length - 1] +
+    " (" + meta.test_sittings.length + " sittings) \u00b7 shaded band is the 95% interval" +
+    (curveDs === "PM" ? " \u00b7 the dashed curve sits on the solid one: timing adds nothing" : "");
+  lg.appendChild(foot);
+}
+
+/* ---------- 2. decomposition ---------- */
+const SEGMENTS = [["SQ1_question_choice", "The paper lets you choose", "--s1"],
+                  ["SQ2_frequency_gain", "Topic frequency", "--s2"],
+                  ["SQ3_timing_gain", "Timing and gaps", "--s3"]];
+function drawDecomp(){
+  const svg = document.getElementById("decomp-chart"); svg.textContent = "";
+  const sets = Object.keys(D.analysis.decomposition);
+  const W = 900, L = 96, R = 92, T = 26, rowH = 62, gap = 26;
+  const x = v => L + v * (W - L - R);
+  const base = css("--ramp-2"), rule = css("--rule-soft");
+  [0, .2, .4, .6, .8, 1].forEach(v => {
+    svg.appendChild(el("line", {x1: x(v), x2: x(v), y1: T - 8, y2: T + sets.length * (rowH + gap) - gap + 6,
+      stroke: rule, "stroke-width": 1}));
+    svg.appendChild(txt(x(v), T + sets.length * (rowH + gap) - gap + 26, v.toFixed(1), {"text-anchor": "middle"}));
+  });
+  sets.forEach((ds, i) => {
+    const y0 = T + i * (rowH + gap), dec = D.analysis.decomposition[ds];
+    let left = D.analysis.meta[ds]["AS_0.5"]["RANDOM_ALL_COMPULSORY"];
+    const label = txt(L - 14, y0 + rowH / 2 + 5, D.datasets[ds].zh, {"text-anchor": "end", fill: css("--ink-2")});
+    label.setAttribute("font-family", "inherit"); label.setAttribute("font-size", 14); svg.appendChild(label);
+    const baseRect = el("rect", {x: x(0), y: y0, width: x(left) - x(0), height: rowH, fill: base, rx: 3});
+    baseRect.addEventListener("pointerenter", ev => showTip("<b>" + D.datasets[ds].zh +
+      "</b><br>All questions compulsory, random topics<br><span class='mono'>" + pct(left) + "</span>", ev));
+    baseRect.addEventListener("pointerleave", hideTip);
+    svg.appendChild(baseRect);
+    const bl = txt(x(left / 2), y0 + rowH / 2 + 5, pct(left), {"text-anchor": "middle", fill: css("--ink")});
+    svg.appendChild(bl);
+    SEGMENTS.forEach(([key, name, tok]) => {
+      const v = dec[key].mean, w = Math.max(x(left + Math.max(v, 0)) - x(left), v > 0 ? 1.5 : 0);
+      if (v > 0.0005) {
+        const r = el("rect", {x: x(left) + 2, y: y0, width: Math.max(w - 2, 1.5), height: rowH,
+          fill: css(tok), rx: 3});
+        r.addEventListener("pointerenter", ev => showTip("<b>" + name + "</b><br><span class='mono'>+" +
+          (v * 100).toFixed(1) + " marks per 100</span><br><span class='mono'>95% interval " +
+          (dec[key].ci_lo * 100).toFixed(1) + " – " + (dec[key].ci_hi * 100).toFixed(1) + "</span>" +
+          (dec[key].practically_negligible ? "<br>Inside the pre-set \u2018too small to matter\u2019 band" : ""), ev));
+        r.addEventListener("pointerleave", hideTip);
+        svg.appendChild(r);
+        if (w > 54) svg.appendChild(txt(x(left) + w / 2, y0 + rowH / 2 + 5, "+" + (v * 100).toFixed(1),
+          {"text-anchor": "middle", fill: "#fff"}));
+      }
+      left += Math.max(v, 0);
+    });
+    const tot = txt(x(left) + 12, y0 + rowH / 2 + 5, pct(left), {fill: css("--ink")});
+    tot.setAttribute("font-size", 14); svg.appendChild(tot);
+    const tiny = dec.SQ3_timing_gain;
+    const tl = txt(x(left) + 12, y0 + rowH / 2 + 22, "Timing " +
+      (tiny.mean >= 0 ? "+" : "") + (tiny.mean * 100).toFixed(1) + " marks");
+    tl.setAttribute("font-size", 11); svg.appendChild(tl);
+  });
+  svg.setAttribute("viewBox", "0 0 900 " + (T + sets.length * (rowH + gap) + 26));
+  const lg = document.getElementById("decomp-legend"); lg.textContent = "";
+  [["All compulsory, random topics", base]].concat(SEGMENTS.map(([k, n, tok]) => [n, css(tok)]))
+    .forEach(([name, col]) => {
+      const s = document.createElement("span");
+      s.innerHTML = "<i style='background:" + col + "'></i>" + name;
+      lg.appendChild(s);
+    });
+}
+
+/* ---------- 3. hypothesis test cards ---------- */
+function drawTests(){
+  const box = document.getElementById("tests"); box.textContent = "";
+  const rows = [["H1_PHY", "Do frequent-topic picks beat random picks?", "Physics"],
+                ["H2_PHY", "Does adding timing beat frequency alone?", "Physics"],
+                ["H3_pooled", "Does \u2018years since last seen\u2019 predict a topic?", "Physics + Maths"]];
+  rows.forEach(([key, q, who]) => {
+    const t = D.analysis.tests[key]; if (!t) return;
+    const yes = t["significant_holm_0.05"];
+    const d = document.createElement("div"); d.className = "card panel";
+    d.innerHTML = "<div class='q'>" + q + "</div>" +
+      "<div class='v'>" + (yes ? "Yes" : "No evidence") + "</div>" +
+      "<div class='m'><span class='pill " + (yes ? "yes" : "no") + "'>p = " +
+      t.p_holm.toFixed(4) + "</span> <span class='mono'>" + who + "</span></div>" +
+      (t.ci ? "<div class='m mono'>Effect " + (t.statistic * 100).toFixed(2) + " marks per 100, 95% interval " +
+        (t.ci[0] * 100).toFixed(2) + " – " + (t.ci[1] * 100).toFixed(2) + "</div>" : "");
+    box.appendChild(d);
+  });
+  const note = document.createElement("div");
+  note.className = "card panel";
+  note.innerHTML = "<div class='q'>How to read this</div><div class='m' style='margin-top:8px'>" +
+    "p-values are Holm-corrected over 2,000 reshuffles of the real data. Only the Physics table is " +
+    "confirmatory; Maths and every sensitivity check are exploratory. \u2018No evidence\u2019 means none could be " +
+    "detected here, not that none exists.</div>";
+  box.appendChild(note);
+}
+
+/* ---------- 4. heat map ---------- */
+let atlasDs = "PHY";
+const RAMP = [[0.12, "--ramp-5"], [0.08, "--ramp-4"], [0.04, "--ramp-3"],
+              [0.015, "--ramp-2"], [0.0001, "--ramp-1"]];
+const rampOf = v => { for (const [lo, tok] of RAMP) if (v >= lo) return css(tok); return css("--ramp-0"); };
+function drawHeat(){
+  const svg = document.getElementById("heat"); svg.textContent = "";
+  const ds = D.datasets[atlasDs];
+  const rows = ds.topics.slice().sort((a, b) => b.count - a.count || b.mean - a.mean);
+  const cell = 17, gap = 2.4, labelW = 268, topH = 30;
+  const W = labelW + ds.years.length * (cell + gap) + 46;
+  const H = topH + rows.length * (cell + gap) + 10;
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  svg.setAttribute("width", W); svg.setAttribute("height", H);
+  svg.style.width = W + "px"; svg.style.height = H + "px"; svg.style.maxWidth = "none";
+  ds.years.forEach((yr, j) => {
+    const t = txt(labelW + j * (cell + gap) + cell / 2, topH - 12, String(yr).slice(2),
+      {"text-anchor": "middle", "font-size": 10.5});
+    svg.appendChild(t);
+  });
+  rows.forEach((tp, i) => {
+    const y = topH + i * (cell + gap);
+    const name = txt(labelW - 12, y + cell - 4.5, tp.name.length > 34 ? tp.name.slice(0, 33) + "…" : tp.name,
+      {"text-anchor": "end", "font-size": 11.5, fill: css("--ink-2")});
+    name.setAttribute("font-family", "inherit");
+    name.appendChild(el("title")).textContent = tp.id + " · " + tp.name;
+    svg.appendChild(name);
+    tp.row.forEach((v, j) => {
+      const r = el("rect", {x: labelW + j * (cell + gap), y, width: cell, height: cell, rx: 2.5,
+        fill: rampOf(v)});
+      r.addEventListener("pointerenter", ev => showTip("<b>" + ds.years[j] + "</b> \u00b7 " + tp.name +
+        "<br><span class='mono'>" + tp.id + "</span><br>" +
+        (v > 0 ? "<span class='mono'>" + (v * 100).toFixed(1) + "%</span> of that paper\u2019s marks"
+               : "Not examined that year"), ev));
+      r.addEventListener("pointerleave", hideTip);
+      svg.appendChild(r);
+    });
+    const c = txt(labelW + ds.years.length * (cell + gap) + 10, y + cell - 4.5,
+      tp.count + "/" + ds.years.length, {"font-size": 10.5});
+    svg.appendChild(c);
+  });
+  const lg = document.getElementById("heat-legend"); lg.textContent = "";
+  const spans = [["not examined", "--ramp-0"], ["<1.5%", "--ramp-1"], ["1.5\u20134%", "--ramp-2"],
+                 ["4–8%", "--ramp-3"], ["8–12%", "--ramp-4"], ["≥12%", "--ramp-5"]];
+  const lab = document.createElement("span"); lab.textContent = "Share of the paper\u2019s marks:"; lg.appendChild(lab);
+  spans.forEach(([name, tok]) => {
+    const s = document.createElement("span");
+    s.style.display = "inline-flex"; s.style.alignItems = "center"; s.style.gap = "5px";
+    const sw = document.createElement("span"); sw.className = "sw";
+    sw.style.background = css(tok);
+    sw.style.border = "1px solid " + css("--rule");
+    s.appendChild(sw); s.appendChild(document.createTextNode(name));
+    lg.appendChild(s);
+  });
+}
+
+/* ---------- 5. history table ---------- */
+let histDs = "PHY", sortK = "count", sortDir = -1;
+function drawTable(){
+  const tb = document.querySelector("#hist-table tbody"); tb.textContent = "";
+  const ds = D.datasets[histDs];
+  const rows = ds.topics.slice().sort((a, b) => {
+    const A = a[sortK], B = b[sortK];
+    if (A === B) return a.name.localeCompare(b.name);
+    if (typeof A === "string" || typeof B === "string")
+      return (String(A) < String(B) ? -1 : 1) * sortDir;
+    return (A - B) * sortDir;
+  });
+  rows.forEach(tp => {
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      "<td class='topic'>" + tp.name + "<span class='code mono'>" + tp.id + "</span></td>" +
+      "<td class='mono'>" + tp.count + " / " + ds.years.length + "</td>" +
+      "<td><span class='bar-track'><span class='bar' style='width:" +
+        (tp.rate * 58).toFixed(1) + "px'></span></span><span class='mono'>" +
+        (tp.rate * 100).toFixed(0) + "%</span></td>" +
+      "<td class='mono'>" + (tp.mean * 100).toFixed(1) + "%</td>" +
+      "<td class='mono'>" + (tp.gap || "—") + "</td>" +
+      "<td class='mono'>" + (tp.first || "—") + "</td>" +
+      "<td class='mono'>" + (tp.last || "—") + "</td>";
+    tb.appendChild(tr);
+  });
+  document.querySelectorAll("#hist-table th").forEach(th => {
+    th.setAttribute("aria-sort", th.dataset.k === sortK ? (sortDir < 0 ? "descending" : "ascending") : "none");
+  });
+}
+document.querySelectorAll("#hist-table th").forEach(th => {
+  th.addEventListener("click", () => {
+    const k = th.dataset.k;
+    if (k === sortK) sortDir = -sortDir; else { sortK = k; sortDir = (k === "name") ? 1 : -1; }
+    drawTable();
+  });
+});
+
+/* ---------- 6. QA dots ---------- */
+function drawQA(){
+  const svg = document.getElementById("qa-chart"); svg.textContent = "";
+  const sets = Object.keys(D.qa).filter(k => D.qa[k].A2 && D.qa[k].A2.n);
+  const W = 900, H = 300, L = 62, R = 30, T = 26, B = 56;
+  const y = v => T + (1.02 - v) / (1.02 - 0.80) * (H - T - B);
+  const x = i => L + (i + 0.5) / sets.length * (W - L - R);
+  [0.80, 0.85, 0.90, 0.95, 1.00].forEach(v => {
+    svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(v), y2: y(v),
+      stroke: v === 0.85 ? css("--muted") : css("--rule-soft"), "stroke-width": 1,
+      "stroke-dasharray": v === 0.85 ? "5 4" : ""}));
+    svg.appendChild(txt(L - 10, y(v) + 4, v.toFixed(2), {"text-anchor": "end"}));
+  });
+  const th = txt(W - R, y(0.85) + 16, "pass mark 0.85", {"text-anchor": "end", "font-size": 11.5});
+  svg.appendChild(th);
+  const series = [["mean_overlap", "Weight overlap", "--s1"], ["main_topic_agreement", "Same main topic", "--s2"]];
+  sets.forEach((ds, i) => {
+    const a2 = D.qa[ds].A2, xs = [x(i) - 16, x(i) + 16];
+    svg.appendChild(el("line", {x1: xs[0], x2: xs[1], y1: y(a2.mean_overlap),
+      y2: y(a2.main_topic_agreement), stroke: css("--rule"), "stroke-width": 1.5}));
+    series.forEach(([key, name, tok], k) => {
+      const v = a2[key];
+      const c = el("circle", {cx: xs[k], cy: y(v), r: 7.5, fill: css(tok),
+        stroke: css("--panel"), "stroke-width": 2});
+      c.addEventListener("pointerenter", ev => showTip("<b>" + D.datasets[ds].zh + "</b><br>" + name +
+        "<br><span class='mono'>" + v.toFixed(3) + "</span> (" + a2.n + " parts resampled)", ev));
+      c.addEventListener("pointerleave", hideTip);
+      svg.appendChild(c);
+      const lbl = txt(xs[k], y(v) - 15, v.toFixed(2), {"text-anchor": "middle", fill: css("--ink-2")});
+      svg.appendChild(lbl);
+    });
+    const name = txt(x(i), H - B + 24, D.datasets[ds].zh,
+      {"text-anchor": "middle", fill: css("--ink-2")});
+    name.setAttribute("font-family", "inherit"); name.setAttribute("font-size", 13); svg.appendChild(name);
+    const n = txt(x(i), H - B + 42, "n = " + a2.n, {"text-anchor": "middle", "font-size": 11});
+    svg.appendChild(n);
+  });
+  const lg = document.getElementById("qa-legend"); lg.textContent = "";
+  series.forEach(([key, name, tok]) => {
+    const s = document.createElement("span");
+    s.innerHTML = "<i style='background:" + css(tok) + "; border-radius:50%; width:10px; height:10px'></i>" + name;
+    lg.appendChild(s);
+  });
+  const foot = document.createElement("span");
+  foot.style.color = "var(--muted)"; foot.style.fontSize = "12px";
+  foot.textContent = "Axis starts at 0.80 \u00b7 same model and prompt, fresh calls \u00b7 pass mark 0.85";
+  lg.appendChild(foot);
+}
+
+/* ---------- boot ---------- */
+function drawAll(){ drawCurves(); drawDecomp(); drawTests(); drawHeat(); drawTable(); drawQA(); }
+const analysed = [["PHY", "Physics"], ["PM", "Maths"]];
+const all = Object.keys(D.datasets).map(k => [k, D.datasets[k].zh]);
+tabs(document.getElementById("curve-tabs"), analysed, () => curveDs, k => { curveDs = k; drawCurves(); });
+tabs(document.getElementById("atlas-tabs"), all, () => atlasDs, k => { atlasDs = k; drawHeat(); });
+tabs(document.getElementById("hist-tabs"), all, () => histDs, k => { histDs = k; drawTable(); });
+drawAll();
+addEventListener("resize", () => { hideTip(); });
+})();
+</script>
+</body>
+</html>

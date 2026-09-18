@@ -10,6 +10,8 @@ And, more pointedly: does it help to know **which topics come up often**, and do
 
 **Retrospective analysis of past papers only. It makes no prediction about any future examination.**
 
+**[Read it as an interactive page →](https://aijcoder.github.io/leaving-cert-predictability/)** · [Wiki, written for students](https://github.com/Aijcoder/leaving-cert-predictability/wiki)
+
 ## The finding
 
 Knowing the frequencies helps. Guessing the rotation does not.
